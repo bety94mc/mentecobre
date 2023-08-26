@@ -1,0 +1,3122 @@
+[
+  {
+    "model": "mentecobre.articles",
+    "pk": 79,
+    "fields": {
+      "pageidEn": 23534,
+      "pageidEs": 25461,
+      "titleEn": "Yuishin",
+      "titleEs": "Yuishin",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 21,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/edit/Yuishin",
+      "urlEs": "https://es.coppermind.net/wiki/Yuishin",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 80,
+    "fields": {
+      "pageidEn": 23527,
+      "pageidEs": 25459,
+      "titleEn": "Torish",
+      "titleEs": "Torés",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 21,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/edit/Torish",
+      "urlEs": "https://es.coppermind.net/wiki/Torés",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 81,
+    "fields": {
+      "pageidEn": 23525,
+      "pageidEs": 25458,
+      "titleEn": "Torio City",
+      "titleEs": "Ciudad Torio",
+      "type": "LUG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 21,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/edit/Torio_City",
+      "urlEs": "https://es.coppermind.net/wiki/Ciudad_Torio",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 82,
+    "fields": {
+      "pageidEn": 14101,
+      "pageidEs": 25451,
+      "titleEn": "Slatrify",
+      "titleEs": "Desaridecer",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 2,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/edit/Slatrify",
+      "urlEs": "https://es.coppermind.net/wiki/Desaridecer",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 83,
+    "fields": {
+      "pageidEn": 22848,
+      "pageidEs": 25050,
+      "titleEn": "Lightweavers",
+      "titleEs": "Tejedores de Luz",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 17,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Lightweavers",
+      "urlEs": "https://es.coppermind.net/wiki/Tejedores_de_Luz",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 84,
+    "fields": {
+      "pageidEn": 23530,
+      "pageidEs": 25344,
+      "titleEn": "UTol",
+      "titleEs": "UTol",
+      "type": "LOC",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 5,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/UTol",
+      "urlEs": "https://es.coppermind.net/wiki/UTol",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 85,
+    "fields": {
+      "pageidEn": 23397,
+      "pageidEs": 25337,
+      "titleEn": "Coppermind:The Frugal Wizard's Handbook for Surviving Medieval England",
+      "titleEs": "Coppermind:La guía del mago frugal para sobrevivir en la Inglaterra del medievo",
+      "type": "SUB",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 11,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Coppermind:The_Frugal_Wizard's_Handbook_for_Surviving_Medieval_England",
+      "urlEs": "https://es.coppermind.net/wiki/Coppermind:La_guía_del_mago_frugal_para_sobrevivir_en_la_Inglaterra_del_medievo",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 86,
+    "fields": {
+      "pageidEn": 23495,
+      "pageidEs": 25315,
+      "titleEn": "Nikaro",
+      "titleEs": "Nikaro",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 21,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Nikaro",
+      "urlEs": "https://es.coppermind.net/wiki/Nikaro",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 87,
+    "fields": {
+      "pageidEn": 23608,
+      "pageidEs": 25303,
+      "titleEn": "Sealing",
+      "titleEs": "Marlinos",
+      "type": "RD",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 17,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Sealing",
+      "urlEs": "https://es.coppermind.net/wiki/Marlinos",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 88,
+    "fields": {
+      "pageidEn": 23723,
+      "pageidEs": 25296,
+      "titleEn": "Aether planet",
+      "titleEs": "Planeta éter",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 5,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Aether_planet",
+      "urlEs": "https://es.coppermind.net/wiki/Planeta_éter",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 89,
+    "fields": {
+      "pageidEn": 3718,
+      "pageidEs": 25269,
+      "titleEn": "John (Rithmatist)",
+      "titleEs": "John (Rithmatista)",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 14,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/John_(Rithmatist)",
+      "urlEs": "https://es.coppermind.net/wiki/John_(Rithmatista)",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 90,
+    "fields": {
+      "pageidEn": 23422,
+      "pageidEs": 25268,
+      "titleEn": "Miles Dagouter/Quotes",
+      "titleEs": "Miles Dagouter/Citas",
+      "type": "SUB",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 10,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Miles_Dagouter/Quotes",
+      "urlEs": "https://es.coppermind.net/wiki/Miles_Dagouter/Citas",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 91,
+    "fields": {
+      "pageidEn": 23405,
+      "pageidEs": 3718,
+      "titleEn": "John",
+      "titleEs": "John",
+      "type": "DIS",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 12,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/John",
+      "urlEs": "https://es.coppermind.net/wiki/John",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 92,
+    "fields": {
+      "pageidEn": 21619,
+      "pageidEs": 24354,
+      "titleEn": "The Dust Brigade",
+      "titleEs": "The Dust Brigade",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 19,
+      "urldrive": null,
+      "urlEn": null,
+      "urlEs": null,
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 93,
+    "fields": {
+      "pageidEn": 23359,
+      "pageidEs": 25247,
+      "titleEn": "Nanites",
+      "titleEs": "Nanoides",
+      "type": "OBJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 11,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Nanites",
+      "urlEs": "https://es.coppermind.net/wiki/Nanoides",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 94,
+    "fields": {
+      "pageidEn": 23361,
+      "pageidEs": 25245,
+      "titleEn": "Runestone",
+      "titleEs": "Piedra rúnica",
+      "type": "OBJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 11,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Runestone",
+      "urlEs": "https://es.coppermind.net/wiki/Piedra_rúnica",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 95,
+    "fields": {
+      "pageidEn": 23276,
+      "pageidEs": 25231,
+      "titleEn": "Yeeden",
+      "titleEs": "Yeeden",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 2,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Yeeden",
+      "urlEs": "https://es.coppermind.net/wiki/Yeeden",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 96,
+    "fields": {
+      "pageidEn": 23309,
+      "pageidEs": 25205,
+      "titleEn": "Skylight",
+      "titleEs": "Cieluces",
+      "type": "OBJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 6,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Skylight",
+      "urlEs": "https://es.coppermind.net/wiki/Cieluces",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 97,
+    "fields": {
+      "pageidEn": 23312,
+      "pageidEs": 25163,
+      "titleEn": "Eriuians",
+      "titleEs": "Eriuianos",
+      "type": "CU",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 11,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Eriuians",
+      "urlEs": "https://es.coppermind.net/wiki/Eriuianos",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 98,
+    "fields": {
+      "pageidEn": 23088,
+      "pageidEs": 25088,
+      "titleEn": "Static",
+      "titleEs": "Static",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 16,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Static",
+      "urlEs": "https://es.coppermind.net/wiki/Static",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 99,
+    "fields": {
+      "pageidEn": 23098,
+      "pageidEs": 25086,
+      "titleEn": "Seapress",
+      "titleEs": "Seapress",
+      "type": "LUG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 12,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Seapress",
+      "urlEs": "https://es.coppermind.net/wiki/Seapress",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 100,
+    "fields": {
+      "pageidEn": 23102,
+      "pageidEs": 25085,
+      "titleEn": "Point",
+      "titleEs": "Point",
+      "type": "LUG",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 12,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Point",
+      "urlEs": "https://es.coppermind.net/wiki/Point",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 101,
+    "fields": {
+      "pageidEn": 22992,
+      "pageidEs": 25019,
+      "titleEn": "Zephyr spores",
+      "titleEs": "Esporas céfiro",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 20,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Zephyr_spores",
+      "urlEs": "https://es.coppermind.net/wiki/Esporas_céfiro",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 102,
+    "fields": {
+      "pageidEn": 22855,
+      "pageidEs": 25017,
+      "titleEn": "Zephyr Islands",
+      "titleEs": "Islas Céfiro",
+      "type": "LUG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 20,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Zephyr_Islands",
+      "urlEs": "https://es.coppermind.net/wiki/Islas_Céfiro",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 103,
+    "fields": {
+      "pageidEn": 22749,
+      "pageidEs": 25000,
+      "titleEn": "Tress",
+      "titleEs": "Trenza",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 20,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Tress",
+      "urlEs": "https://es.coppermind.net/wiki/Trenza",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 104,
+    "fields": {
+      "pageidEn": 22955,
+      "pageidEs": 24989,
+      "titleEn": "Starmarks",
+      "titleEs": "Marcas estelares",
+      "type": "MG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 2,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Starmarks",
+      "urlEs": "https://es.coppermind.net/wiki/Marcas_estelares",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 105,
+    "fields": {
+      "pageidEn": 22662,
+      "pageidEs": 24811,
+      "titleEn": "Ramblemen",
+      "titleEs": "Buhoneros",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 1,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Ramblemen",
+      "urlEs": "https://es.coppermind.net/wiki/Buhonero",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 106,
+    "fields": {
+      "pageidEn": 22101,
+      "pageidEs": 24647,
+      "titleEn": "Kamiko",
+      "titleEs": "Kamiko",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 4,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Kamiko",
+      "urlEs": "https://es.coppermind.net/wiki/Kamiko",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 107,
+    "fields": {
+      "pageidEn": 22208,
+      "pageidEs": 24596,
+      "titleEn": "Bastille Versus the Evil Librarians/Summary",
+      "titleEs": "Bastille contra los bibliotecarios malvados/Resumen",
+      "type": "SUB",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 4,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Bastille_Versus_the_Evil_Librarians/Summary",
+      "urlEs": "https://es.coppermind.net/wiki/Bastille_contra_los_bibliotecarios_malvados/Resumen",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 108,
+    "fields": {
+      "pageidEn": 21852,
+      "pageidEs": 24454,
+      "titleEn": "Coppermind:Artists/Diego López",
+      "titleEs": "Coppermind:Artistas/Diego López",
+      "type": "WIKI",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 8,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Coppermind:Artists/Diego_L%C3%B3pez",
+      "urlEs": "https://es.coppermind.net/wiki/Coppermind:Artistas/Diego_L%C3%B3pez",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 109,
+    "fields": {
+      "pageidEn": 21764,
+      "pageidEs": 24384,
+      "titleEn": "Susebron the Fourth",
+      "titleEs": "Susebron IV",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 1,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Susebron_the_Fourth",
+      "urlEs": "https://es.coppermind.net/wiki/Susebron_IV",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 110,
+    "fields": {
+      "pageidEn": 21761,
+      "pageidEs": 24387,
+      "titleEn": "Legion: Lies of the Beholder/Statistical analysis",
+      "titleEs": "Legión: Las mentiras del contemplador/Análisis estadístico",
+      "type": "SUB",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 9,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Legion:_Lies_of_the_Beholder/Statistical_analysis",
+      "urlEs": "https://es.coppermind.net/wiki/Legión:_Las_mentiras_del_contemplador/Análisis_estadístico",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 111,
+    "fields": {
+      "pageidEn": 21759,
+      "pageidEs": 24392,
+      "titleEn": "A Fire Within the Ways",
+      "titleEs": "A Fire Within the Ways",
+      "type": "LIB",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 16,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/A_Fire_Within_the_Ways",
+      "urlEs": "https://es.coppermind.net/wiki/A_Fire_Within_the_Ways",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 112,
+    "fields": {
+      "pageidEn": 21574,
+      "pageidEs": 24298,
+      "titleEn": "First of the First",
+      "titleEs": "Primero del Primero",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 18,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/First_of_the_First",
+      "urlEs": "https://es.coppermind.net/wiki/Primero_del_Primero",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 113,
+    "fields": {
+      "pageidEn": 2427,
+      "pageidEs": 2427,
+      "titleEn": "Summary:The Emperor's Soul",
+      "titleEs": "Summary:El alma del emperador",
+      "type": "LIB",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 3,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Summary:The_Emperor%27s_Soul",
+      "urlEs": "https://es.coppermind.net/wiki/Summary:El_alma_del_emperador",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 114,
+    "fields": {
+      "pageidEn": 3,
+      "pageidEs": 3,
+      "titleEn": "01 Stormlight Testing",
+      "titleEs": "01 Stormlight Probando",
+      "type": "EVT",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 13,
+      "urldrive": "https://docs.google.com/document/d/1d_EpTMqAtZ_04w5I64AgYc_SclXp6pIr/edit",
+      "urlEn": "https://coppermind.net/wiki/Cosmere",
+      "urlEs": "https://es.coppermind.net/wiki/Cosmere",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 115,
+    "fields": {
+      "pageidEn": 2,
+      "pageidEs": 2,
+      "titleEn": "01 Mistborn Testing",
+      "titleEs": "01 Mistborn Probando",
+      "type": "CU",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 13,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Mistborn_(series)",
+      "urlEs": "https://es.coppermind.net/wiki/Nacidos_de_la_bruma_(saga)",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 116,
+    "fields": {
+      "pageidEn": 0,
+      "pageidEs": 0,
+      "titleEn": "01 Cosmere Testing",
+      "titleEs": "01 Cosmere Probando",
+      "type": "OBJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 13,
+      "urldrive": "https://docs.google.com/document/d/1GHvOSgQDSw84yFJ1TRBVuxafH5d6r8yhvryVNNeUh7c/edit?usp=sharing",
+      "urlEn": "https://coppermind.net/wiki/Cosmere",
+      "urlEs": "https://es.coppermind.net/wiki/Cosmere",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 117,
+    "fields": {
+      "pageidEn": 17765,
+      "pageidEs": 17765,
+      "titleEn": "Zyardil",
+      "titleEs": "Zyardil",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 17,
+      "urldrive": "https://docs.google.com/document/d/1glbFPMQ8YHCk1b_zf_f2zTiUYcTZbZKM8koxBvV8fbg/edit",
+      "urlEn": "https://coppermind.net/wiki/Zyardil",
+      "urlEs": "https://es.coppermind.net/wiki/Zyardil",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 118,
+    "fields": {
+      "pageidEn": 2443,
+      "pageidEs": 2443,
+      "titleEn": "Zu (Sel)",
+      "titleEs": "Zu (Sel)",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 3,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Zu_(Sel)",
+      "urlEs": "https://es.coppermind.net/wiki/Zu_(Sel)",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 119,
+    "fields": {
+      "pageidEn": 20283,
+      "pageidEs": 20283,
+      "titleEn": "Zeff",
+      "titleEs": "Zeff",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 15,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Zeff",
+      "urlEs": "https://es.coppermind.net/wiki/Zeff",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 120,
+    "fields": {
+      "pageidEn": 20582,
+      "pageidEs": 20582,
+      "titleEn": "Yunmi Park",
+      "titleEs": "Yunmi Park",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 15,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Yunmi_Park",
+      "urlEs": "https://es.coppermind.net/wiki/Yunmi_Park",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 121,
+    "fields": {
+      "pageidEn": 3471,
+      "pageidEs": 3471,
+      "titleEn": "Yomen-Ostlin wedding dinner",
+      "titleEs": "Banquete nupcial Yomen-Ostlin",
+      "type": "EVT",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 10,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Yomen-Ostlin_wedding_dinner",
+      "urlEs": "https://es.coppermind.net/wiki/Banquete_nupcial_Yomen-Ostlin",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 122,
+    "fields": {
+      "pageidEn": 5441,
+      "pageidEs": 5441,
+      "titleEn": "Yaalani",
+      "titleEs": "Yaalani",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 18,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Yaalani",
+      "urlEs": "https://es.coppermind.net/wiki/Yaalani",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 123,
+    "fields": {
+      "pageidEn": 17338,
+      "pageidEs": 17338,
+      "titleEn": "Xisisrefliel",
+      "titleEs": "Xisisrefliel",
+      "type": "PJ",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 20,
+      "urldrive": "https://docs.google.com/document/d/1jYzAqk7RhTGrbwJOlSBNcBmUB9rw7vCj-vcChf6gdC8/edit",
+      "urlEn": "https://coppermind.net/wiki/Xisisrefliel",
+      "urlEs": "https://es.coppermind.net/wiki/Xisisrefliel",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 124,
+    "fields": {
+      "pageidEn": 3079,
+      "pageidEs": 3079,
+      "titleEn": "Wulfden the Fourth",
+      "titleEs": "Wulfden IV",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 7,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Wulfden_the_Fourth",
+      "urlEs": "https://es.coppermind.net/wiki/Wulfden_IV",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 125,
+    "fields": {
+      "pageidEn": 14822,
+      "pageidEs": 14822,
+      "titleEn": "Winzik",
+      "titleEs": "Winzik",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 6,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Winzik",
+      "urlEs": "https://es.coppermind.net/wiki/Winzik",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 126,
+    "fields": {
+      "pageidEn": 5443,
+      "pageidEs": 5443,
+      "titleEn": "Winds",
+      "titleEs": "Vientos",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 18,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Winds",
+      "urlEs": "https://es.coppermind.net/wiki/Vientos",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 127,
+    "fields": {
+      "pageidEn": 5653,
+      "pageidEs": 5653,
+      "titleEn": "William Montane",
+      "titleEs": "William Montane",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 19,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/William_Montane",
+      "urlEs": "https://es.coppermind.net/wiki/William_Montane",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 128,
+    "fields": {
+      "pageidEn": 5197,
+      "pageidEs": 5197,
+      "titleEn": "Wetleek",
+      "titleEs": "Puerromojado",
+      "type": "FDV",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 19,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Wetleek",
+      "urlEs": "https://es.coppermind.net/wiki/Puerromojado",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 129,
+    "fields": {
+      "pageidEn": 38,
+      "pageidEs": 38,
+      "titleEn": "Warbreaker",
+      "titleEs": "El aliento de los dioses",
+      "type": "LIB",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 1,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Warbreaker",
+      "urlEs": "https://es.coppermind.net/wiki/El_aliento_de_los_dioses",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 130,
+    "fields": {
+      "pageidEn": 2135,
+      "pageidEs": 2135,
+      "titleEn": "Wan ShaiLu",
+      "titleEs": "Wan ShaiLu",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 3,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Wan_ShaiLu",
+      "urlEs": "https://es.coppermind.net/wiki/Wan_ShaiLu",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 131,
+    "fields": {
+      "pageidEn": 794,
+      "pageidEs": 794,
+      "titleEn": "Vo",
+      "titleEs": "Vo",
+      "type": "PJ",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 1,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Vo",
+      "urlEs": "https://es.coppermind.net/wiki/Vo",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 132,
+    "fields": {
+      "pageidEn": 3423,
+      "pageidEs": 3423,
+      "titleEn": "Valendar Academy",
+      "titleEs": "Academia Valendar",
+      "type": "LOC",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 14,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Valendar_Academy",
+      "urlEs": "https://es.coppermind.net/wiki/Academia_Valendar",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 133,
+    "fields": {
+      "pageidEn": 55,
+      "pageidEs": 55,
+      "titleEn": "Towers of Midnight",
+      "titleEs": "Torres de Medianoche",
+      "type": "LIB",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 16,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Towers_of_Midnight",
+      "urlEs": "https://es.coppermind.net/wiki/Torres_de_Medianoche",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 134,
+    "fields": {
+      "pageidEn": 21294,
+      "pageidEs": 23144,
+      "titleEn": "The Scribbler",
+      "titleEs": "El Garabatos",
+      "type": "RD",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 14,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/The_Scribbler",
+      "urlEs": "https://es.coppermind.net/wiki/El_Garabatos",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 135,
+    "fields": {
+      "pageidEn": 1753,
+      "pageidEs": 1753,
+      "titleEn": "The Emperor's Soul",
+      "titleEs": "El alma del emperador",
+      "type": "LIB",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 3,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/The_Emperor%27s_Soul",
+      "urlEs": "https://es.coppermind.net/wiki/El_alma_del_emperador",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 136,
+    "fields": {
+      "pageidEn": 822,
+      "pageidEs": 822,
+      "titleEn": "Synod",
+      "titleEs": "Sínodo",
+      "type": "ORG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 10,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Synod",
+      "urlEs": "https://es.coppermind.net/wiki/Sínodo",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 137,
+    "fields": {
+      "pageidEn": 331,
+      "pageidEs": 331,
+      "titleEn": "Spren",
+      "titleEs": "Spren",
+      "type": "FDV",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 17,
+      "urldrive": "https://docs.google.com/document/d/11iFntfi1z8cm9nEfvL2Blx9fUzzMK8TEGV3q2edQ0m8/edit",
+      "urlEn": "https://coppermind.net/wiki/Spren",
+      "urlEs": "https://es.coppermind.net/wiki/Spren",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 138,
+    "fields": {
+      "pageidEn": 5303,
+      "pageidEs": 5303,
+      "titleEn": "Skyward",
+      "titleEs": "Escuadrón",
+      "type": "LIB",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 6,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Skyward",
+      "urlEs": "https://es.coppermind.net/wiki/Escuadrón",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 139,
+    "fields": {
+      "pageidEn": 5268,
+      "pageidEs": 5268,
+      "titleEn": "Sixth of the Dusk (character)",
+      "titleEs": "Sexto del Ocaso (personaje)",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 18,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Sixth_of_the_Dusk_(character)",
+      "urlEs": "https://es.coppermind.net/wiki/Sexto_del_Ocaso_(personaje)",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 140,
+    "fields": {
+      "pageidEn": 3735,
+      "pageidEs": 3735,
+      "titleEn": "Shade",
+      "titleEs": "Umbra",
+      "type": "MG",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 19,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Shade",
+      "urlEs": "https://es.coppermind.net/wiki/Umbra",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 141,
+    "fields": {
+      "pageidEn": 5784,
+      "pageidEs": 5784,
+      "titleEn": "Sazed's rings",
+      "titleEs": "Anillos de Sazed",
+      "type": "OBJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 10,
+      "urldrive": "https://docs.google.com/document/d/17J92AfqtxJVD19DZ8a16rFlp6OkBQ6dA30GkSIS8ieA/edit",
+      "urlEn": "https://coppermind.net/wiki/Sazed%27s_rings",
+      "urlEs": "https://es.coppermind.net/wiki/Anillos_de_Sazed",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 142,
+    "fields": {
+      "pageidEn": 18,
+      "pageidEs": 18,
+      "titleEn": "Raoden",
+      "titleEs": "Raoden",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 7,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Raoden",
+      "urlEs": "https://es.coppermind.net/wiki/Raoden",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 143,
+    "fields": {
+      "pageidEn": 2616,
+      "pageidEs": 2616,
+      "titleEn": "RAFO",
+      "titleEs": "RAFO",
+      "type": "WIKI",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 8,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/RAFO",
+      "urlEs": "https://es.coppermind.net/wiki/RAFO",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 144,
+    "fields": {
+      "pageidEn": 11329,
+      "pageidEs": 11329,
+      "titleEn": "M-Bot",
+      "titleEs": "M-Bot",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 6,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/M-Bot",
+      "urlEs": "https://es.coppermind.net/wiki/M-Bot",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 145,
+    "fields": {
+      "pageidEn": 9960,
+      "pageidEs": 9960,
+      "titleEn": "Legion: The Many Lives of Stephen Leeds",
+      "titleEs": "Legión: Las múltiples vidas de Stephen Leeds",
+      "type": "LIB",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 9,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Legion:_The_Many_Lives_of_Stephen_Leeds",
+      "urlEs": "https://es.coppermind.net/wiki/Legión:_Las_múltiples_vidas_de_Stephen_Leeds",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 146,
+    "fields": {
+      "pageidEn": 8414,
+      "pageidEs": 8414,
+      "titleEn": "Kenton",
+      "titleEs": "Kenton",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 2,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Kenton",
+      "urlEs": "https://es.coppermind.net/wiki/Kenton",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 147,
+    "fields": {
+      "pageidEn": 13,
+      "pageidEs": 13,
+      "titleEn": "Hoid",
+      "titleEs": "Hoid",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 5,
+      "urldrive": "https://docs.google.com/document/d/1xEhW4qOAdEosrGqO190x8DP9PVe4o_dVMSmZDOp4UJc/edit",
+      "urlEn": "https://coppermind.net/wiki/Hoid",
+      "urlEs": "https://es.coppermind.net/wiki/Hoid",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 148,
+    "fields": {
+      "pageidEn": 19345,
+      "pageidEs": 19345,
+      "titleEn": "Elantris",
+      "titleEs": "Elantris",
+      "type": "DIS",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 7,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Elantris",
+      "urlEs": "https://es.coppermind.net/wiki/Elantris",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 149,
+    "fields": {
+      "pageidEn": 5558,
+      "pageidEs": 5558,
+      "titleEn": "Dragonsteel Entertainment",
+      "titleEs": "Dragonsteel Entertainment",
+      "type": "WIKI",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 8,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Dragonsteel_Entertainment",
+      "urlEs": "https://es.coppermind.net/wiki/Dragonsteel_Entertainment",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 150,
+    "fields": {
+      "pageidEn": 6294,
+      "pageidEs": 6294,
+      "titleEn": "Dragon",
+      "titleEs": "Dragón",
+      "type": "DIS",
+      "priority": "5",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": null,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Dragon",
+      "urlEs": "https://es.coppermind.net/wiki/Dragón",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 151,
+    "fields": {
+      "pageidEn": 6346,
+      "pageidEs": 6346,
+      "titleEn": "Dan Wells",
+      "titleEs": "Dan Wells",
+      "type": "WIKI",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 8,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Dan_Wells",
+      "urlEs": "https://es.coppermind.net/wiki/Dan_Wells",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 152,
+    "fields": {
+      "pageidEn": 3444,
+      "pageidEs": 3444,
+      "titleEn": "Chalkling",
+      "titleEs": "Tizoide",
+      "type": "MG",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 14,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Chalkling",
+      "urlEs": "https://es.coppermind.net/wiki/Tizoide",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 153,
+    "fields": {
+      "pageidEn": 46,
+      "pageidEs": 46,
+      "titleEn": "Alcatraz Versus the Evil Librarians (series)",
+      "titleEs": "Alcatraz contra los bibliotecarios malvados (saga)",
+      "type": "LIB",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 4,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Alcatraz_Versus_the_Evil_Librarians_(series)",
+      "urlEs": "https://es.coppermind.net/wiki/Alcatraz_contra_los_bibliotecarios_malvados_(saga)",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 154,
+    "fields": {
+      "pageidEn": 2328,
+      "pageidEs": 2328,
+      "titleEn": "Alcatraz Smedry",
+      "titleEs": "Alcatraz Smedry",
+      "type": "PJ",
+      "priority": "1",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 4,
+      "urldrive": null,
+      "urlEn": "https://coppermind.net/wiki/Alcatraz_Smedry",
+      "urlEs": "https://es.coppermind.net/wiki/Alcatraz_Smedry",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 155,
+    "fields": {
+      "pageidEn": 9902,
+      "pageidEs": 9902,
+      "titleEn": "Aether",
+      "titleEs": "Éter",
+      "type": "MG",
+      "priority": "2",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 5,
+      "urldrive": "https://drive.google.com/open?id=1AYs4I5SL-Srir14xY9O0UuaEg7Mms4X5",
+      "urlEn": "https://coppermind.net/wiki/Aether",
+      "urlEs": "https://es.coppermind.net/wiki/Éter",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.articles",
+    "pk": 156,
+    "fields": {
+      "pageidEn": 3063,
+      "pageidEs": 3063,
+      "titleEn": "Aberteen",
+      "titleEs": "Siempreninas",
+      "type": "FDV",
+      "priority": "3",
+      "translator": null,
+      "assignedDate": null,
+      "translated": false,
+      "translatedDate": null,
+      "reviewer": null,
+      "reviewed": false,
+      "reviewerassignedDate": null,
+      "reviewedDate": null,
+      "gregorio": null,
+      "engregoriado": false,
+      "notes": null,
+      "universe": 7,
+      "urldrive": "https://docs.google.com/document/d/111I-qUWWXbMaph3hlqnBIEs3DVx-Z5Rv/edit",
+      "urlEn": "https://coppermind.net/wiki/Aberteen",
+      "urlEs": "https://es.coppermind.net/wiki/Siempreninas",
+      "linkcopperen": false,
+      "problemCopper": null
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 79,
+    "fields": {
+      "wordEn": "Yuishin",
+      "wordEs": "Yuishin",
+      "universe": 21,
+      "urlEn": "https://coppermind.net/edit/Yuishin",
+      "urlEs": "https://es.coppermind.net/wiki/Yuishin"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 80,
+    "fields": {
+      "wordEn": "Torish",
+      "wordEs": "Torés",
+      "universe": 21,
+      "urlEn": "https://coppermind.net/edit/Torish",
+      "urlEs": "https://es.coppermind.net/wiki/Torés"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 81,
+    "fields": {
+      "wordEn": "Torio City",
+      "wordEs": "Ciudad Torio",
+      "universe": 21,
+      "urlEn": "https://coppermind.net/edit/Torio_City",
+      "urlEs": "https://es.coppermind.net/wiki/Ciudad_Torio"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 82,
+    "fields": {
+      "wordEn": "Slatrify",
+      "wordEs": "Desaridecer",
+      "universe": 2,
+      "urlEn": "https://coppermind.net/edit/Slatrify",
+      "urlEs": "https://es.coppermind.net/wiki/Desaridecer"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 83,
+    "fields": {
+      "wordEn": "Lightweavers",
+      "wordEs": "Tejedores de Luz",
+      "universe": 17,
+      "urlEn": "https://coppermind.net/wiki/Lightweavers",
+      "urlEs": "https://es.coppermind.net/wiki/Tejedores_de_Luz"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 84,
+    "fields": {
+      "wordEn": "UTol",
+      "wordEs": "UTol",
+      "universe": 5,
+      "urlEn": "https://coppermind.net/wiki/UTol",
+      "urlEs": "https://es.coppermind.net/wiki/UTol"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 85,
+    "fields": {
+      "wordEn": "Coppermind:The Frugal Wizard's Handbook for Surviving Medieval England",
+      "wordEs": "Coppermind:La guía del mago frugal para sobrevivir en la Inglaterra del medievo",
+      "universe": 11,
+      "urlEn": "https://coppermind.net/wiki/Coppermind:The_Frugal_Wizard's_Handbook_for_Surviving_Medieval_England",
+      "urlEs": "https://es.coppermind.net/wiki/Coppermind:La_guía_del_mago_frugal_para_sobrevivir_en_la_Inglaterra_del_medievo"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 86,
+    "fields": {
+      "wordEn": "Nikaro",
+      "wordEs": "Nikaro",
+      "universe": 21,
+      "urlEn": "https://coppermind.net/wiki/Nikaro",
+      "urlEs": "https://es.coppermind.net/wiki/Nikaro"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 87,
+    "fields": {
+      "wordEn": "Sealing",
+      "wordEs": "Marlinos",
+      "universe": 17,
+      "urlEn": "https://coppermind.net/wiki/Sealing",
+      "urlEs": "https://es.coppermind.net/wiki/Marlinos"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 88,
+    "fields": {
+      "wordEn": "Aether planet",
+      "wordEs": "Planeta éter",
+      "universe": 5,
+      "urlEn": "https://coppermind.net/wiki/Aether_planet",
+      "urlEs": "https://es.coppermind.net/wiki/Planeta_éter"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 89,
+    "fields": {
+      "wordEn": "John (Rithmatist)",
+      "wordEs": "John (Rithmatista)",
+      "universe": 14,
+      "urlEn": "https://coppermind.net/wiki/John_(Rithmatist)",
+      "urlEs": "https://es.coppermind.net/wiki/John_(Rithmatista)"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 90,
+    "fields": {
+      "wordEn": "Miles Dagouter/Quotes",
+      "wordEs": "Miles Dagouter/Citas",
+      "universe": 10,
+      "urlEn": "https://coppermind.net/wiki/Miles_Dagouter/Quotes",
+      "urlEs": "https://es.coppermind.net/wiki/Miles_Dagouter/Citas"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 91,
+    "fields": {
+      "wordEn": "John",
+      "wordEs": "John",
+      "universe": 12,
+      "urlEn": "https://coppermind.net/wiki/John",
+      "urlEs": "https://es.coppermind.net/wiki/John"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 92,
+    "fields": {
+      "wordEn": "The Dust Brigade",
+      "wordEs": "The Dust Brigade",
+      "universe": 19,
+      "urlEn": null,
+      "urlEs": null
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 93,
+    "fields": {
+      "wordEn": "Nanites",
+      "wordEs": "Nanoides",
+      "universe": 11,
+      "urlEn": "https://coppermind.net/wiki/Nanites",
+      "urlEs": "https://es.coppermind.net/wiki/Nanoides"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 94,
+    "fields": {
+      "wordEn": "Runestone",
+      "wordEs": "Piedra rúnica",
+      "universe": 11,
+      "urlEn": "https://coppermind.net/wiki/Runestone",
+      "urlEs": "https://es.coppermind.net/wiki/Piedra_rúnica"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 95,
+    "fields": {
+      "wordEn": "Yeeden",
+      "wordEs": "Yeeden",
+      "universe": 2,
+      "urlEn": "https://coppermind.net/wiki/Yeeden",
+      "urlEs": "https://es.coppermind.net/wiki/Yeeden"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 96,
+    "fields": {
+      "wordEn": "Skylight",
+      "wordEs": "Cieluces",
+      "universe": 6,
+      "urlEn": "https://coppermind.net/wiki/Skylight",
+      "urlEs": "https://es.coppermind.net/wiki/Cieluces"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 97,
+    "fields": {
+      "wordEn": "Eriuians",
+      "wordEs": "Eriuianos",
+      "universe": 11,
+      "urlEn": "https://coppermind.net/wiki/Eriuians",
+      "urlEs": "https://es.coppermind.net/wiki/Eriuianos"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 98,
+    "fields": {
+      "wordEn": "Static",
+      "wordEs": "Static",
+      "universe": 16,
+      "urlEn": "https://coppermind.net/wiki/Static",
+      "urlEs": "https://es.coppermind.net/wiki/Static"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 99,
+    "fields": {
+      "wordEn": "Seapress",
+      "wordEs": "Seapress",
+      "universe": 12,
+      "urlEn": "https://coppermind.net/wiki/Seapress",
+      "urlEs": "https://es.coppermind.net/wiki/Seapress"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 100,
+    "fields": {
+      "wordEn": "Point",
+      "wordEs": "Point",
+      "universe": 12,
+      "urlEn": "https://coppermind.net/wiki/Point",
+      "urlEs": "https://es.coppermind.net/wiki/Point"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 101,
+    "fields": {
+      "wordEn": "Zephyr spores",
+      "wordEs": "Esporas céfiro",
+      "universe": 20,
+      "urlEn": "https://coppermind.net/wiki/Zephyr_spores",
+      "urlEs": "https://es.coppermind.net/wiki/Esporas_céfiro"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 102,
+    "fields": {
+      "wordEn": "Zephyr Islands",
+      "wordEs": "Islas Céfiro",
+      "universe": 20,
+      "urlEn": "https://coppermind.net/wiki/Zephyr_Islands",
+      "urlEs": "https://es.coppermind.net/wiki/Islas_Céfiro"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 103,
+    "fields": {
+      "wordEn": "Tress",
+      "wordEs": "Trenza",
+      "universe": 20,
+      "urlEn": "https://coppermind.net/wiki/Tress",
+      "urlEs": "https://es.coppermind.net/wiki/Trenza"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 104,
+    "fields": {
+      "wordEn": "Starmarks",
+      "wordEs": "Marcas estelares",
+      "universe": 2,
+      "urlEn": "https://coppermind.net/wiki/Starmarks",
+      "urlEs": "https://es.coppermind.net/wiki/Marcas_estelares"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 105,
+    "fields": {
+      "wordEn": "Ramblemen",
+      "wordEs": "Buhoneros",
+      "universe": 1,
+      "urlEn": "https://coppermind.net/wiki/Ramblemen",
+      "urlEs": "https://es.coppermind.net/wiki/Buhonero"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 106,
+    "fields": {
+      "wordEn": "Kamiko",
+      "wordEs": "Kamiko",
+      "universe": 4,
+      "urlEn": "https://coppermind.net/wiki/Kamiko",
+      "urlEs": "https://es.coppermind.net/wiki/Kamiko"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 107,
+    "fields": {
+      "wordEn": "Bastille Versus the Evil Librarians/Summary",
+      "wordEs": "Bastille contra los bibliotecarios malvados/Resumen",
+      "universe": 4,
+      "urlEn": "https://coppermind.net/wiki/Bastille_Versus_the_Evil_Librarians/Summary",
+      "urlEs": "https://es.coppermind.net/wiki/Bastille_contra_los_bibliotecarios_malvados/Resumen"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 108,
+    "fields": {
+      "wordEn": "Coppermind:Artists/Diego López",
+      "wordEs": "Coppermind:Artistas/Diego López",
+      "universe": 8,
+      "urlEn": "https://coppermind.net/wiki/Coppermind:Artists/Diego_L%C3%B3pez",
+      "urlEs": "https://es.coppermind.net/wiki/Coppermind:Artistas/Diego_L%C3%B3pez"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 109,
+    "fields": {
+      "wordEn": "Susebron the Fourth",
+      "wordEs": "Susebron IV",
+      "universe": 1,
+      "urlEn": "https://coppermind.net/wiki/Susebron_the_Fourth",
+      "urlEs": "https://es.coppermind.net/wiki/Susebron_IV"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 110,
+    "fields": {
+      "wordEn": "Legion: Lies of the Beholder/Statistical analysis",
+      "wordEs": "Legión: Las mentiras del contemplador/Análisis estadístico",
+      "universe": 9,
+      "urlEn": "https://coppermind.net/wiki/Legion:_Lies_of_the_Beholder/Statistical_analysis",
+      "urlEs": "https://es.coppermind.net/wiki/Legión:_Las_mentiras_del_contemplador/Análisis_estadístico"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 111,
+    "fields": {
+      "wordEn": "A Fire Within the Ways",
+      "wordEs": "A Fire Within the Ways",
+      "universe": 16,
+      "urlEn": "https://coppermind.net/wiki/A_Fire_Within_the_Ways",
+      "urlEs": "https://es.coppermind.net/wiki/A_Fire_Within_the_Ways"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 112,
+    "fields": {
+      "wordEn": "First of the First",
+      "wordEs": "Primero del Primero",
+      "universe": 18,
+      "urlEn": "https://coppermind.net/wiki/First_of_the_First",
+      "urlEs": "https://es.coppermind.net/wiki/Primero_del_Primero"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 113,
+    "fields": {
+      "wordEn": "Summary:The Emperor's Soul",
+      "wordEs": "Summary:El alma del emperador",
+      "universe": 3,
+      "urlEn": "https://coppermind.net/wiki/Summary:The_Emperor%27s_Soul",
+      "urlEs": "https://es.coppermind.net/wiki/Summary:El_alma_del_emperador"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 114,
+    "fields": {
+      "wordEn": "01 Stormlight Testing",
+      "wordEs": "01 Stormlight Probando",
+      "universe": 13,
+      "urlEn": "https://coppermind.net/wiki/Cosmere",
+      "urlEs": "https://es.coppermind.net/wiki/Cosmere"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 115,
+    "fields": {
+      "wordEn": "01 Mistborn Testing",
+      "wordEs": "01 Mistborn Probando",
+      "universe": 13,
+      "urlEn": "https://coppermind.net/wiki/Mistborn_(series)",
+      "urlEs": "https://es.coppermind.net/wiki/Nacidos_de_la_bruma_(saga)"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 116,
+    "fields": {
+      "wordEn": "01 Cosmere Testing",
+      "wordEs": "01 Cosmere Probando",
+      "universe": 13,
+      "urlEn": "https://coppermind.net/wiki/Cosmere",
+      "urlEs": "https://es.coppermind.net/wiki/Cosmere"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 117,
+    "fields": {
+      "wordEn": "Zyardil",
+      "wordEs": "Zyardil",
+      "universe": 17,
+      "urlEn": "https://coppermind.net/wiki/Zyardil",
+      "urlEs": "https://es.coppermind.net/wiki/Zyardil"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 118,
+    "fields": {
+      "wordEn": "Zu (Sel)",
+      "wordEs": "Zu (Sel)",
+      "universe": 3,
+      "urlEn": "https://coppermind.net/wiki/Zu_(Sel)",
+      "urlEs": "https://es.coppermind.net/wiki/Zu_(Sel)"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 119,
+    "fields": {
+      "wordEn": "Zeff",
+      "wordEs": "Zeff",
+      "universe": 15,
+      "urlEn": "https://coppermind.net/wiki/Zeff",
+      "urlEs": "https://es.coppermind.net/wiki/Zeff"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 120,
+    "fields": {
+      "wordEn": "Yunmi Park",
+      "wordEs": "Yunmi Park",
+      "universe": 15,
+      "urlEn": "https://coppermind.net/wiki/Yunmi_Park",
+      "urlEs": "https://es.coppermind.net/wiki/Yunmi_Park"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 121,
+    "fields": {
+      "wordEn": "Yomen-Ostlin wedding dinner",
+      "wordEs": "Banquete nupcial Yomen-Ostlin",
+      "universe": 10,
+      "urlEn": "https://coppermind.net/wiki/Yomen-Ostlin_wedding_dinner",
+      "urlEs": "https://es.coppermind.net/wiki/Banquete_nupcial_Yomen-Ostlin"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 122,
+    "fields": {
+      "wordEn": "Yaalani",
+      "wordEs": "Yaalani",
+      "universe": 18,
+      "urlEn": "https://coppermind.net/wiki/Yaalani",
+      "urlEs": "https://es.coppermind.net/wiki/Yaalani"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 123,
+    "fields": {
+      "wordEn": "Xisisrefliel",
+      "wordEs": "Xisisrefliel",
+      "universe": 20,
+      "urlEn": "https://coppermind.net/wiki/Xisisrefliel",
+      "urlEs": "https://es.coppermind.net/wiki/Xisisrefliel"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 124,
+    "fields": {
+      "wordEn": "Wulfden the Fourth",
+      "wordEs": "Wulfden IV",
+      "universe": 7,
+      "urlEn": "https://coppermind.net/wiki/Wulfden_the_Fourth",
+      "urlEs": "https://es.coppermind.net/wiki/Wulfden_IV"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 125,
+    "fields": {
+      "wordEn": "Winzik",
+      "wordEs": "Winzik",
+      "universe": 6,
+      "urlEn": "https://coppermind.net/wiki/Winzik",
+      "urlEs": "https://es.coppermind.net/wiki/Winzik"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 126,
+    "fields": {
+      "wordEn": "Winds",
+      "wordEs": "Vientos",
+      "universe": 18,
+      "urlEn": "https://coppermind.net/wiki/Winds",
+      "urlEs": "https://es.coppermind.net/wiki/Vientos"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 127,
+    "fields": {
+      "wordEn": "William Montane",
+      "wordEs": "William Montane",
+      "universe": 19,
+      "urlEn": "https://coppermind.net/wiki/William_Montane",
+      "urlEs": "https://es.coppermind.net/wiki/William_Montane"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 128,
+    "fields": {
+      "wordEn": "Wetleek",
+      "wordEs": "Puerromojado",
+      "universe": 19,
+      "urlEn": "https://coppermind.net/wiki/Wetleek",
+      "urlEs": "https://es.coppermind.net/wiki/Puerromojado"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 129,
+    "fields": {
+      "wordEn": "Warbreaker",
+      "wordEs": "El aliento de los dioses",
+      "universe": 1,
+      "urlEn": "https://coppermind.net/wiki/Warbreaker",
+      "urlEs": "https://es.coppermind.net/wiki/El_aliento_de_los_dioses"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 130,
+    "fields": {
+      "wordEn": "Wan ShaiLu",
+      "wordEs": "Wan ShaiLu",
+      "universe": 3,
+      "urlEn": "https://coppermind.net/wiki/Wan_ShaiLu",
+      "urlEs": "https://es.coppermind.net/wiki/Wan_ShaiLu"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 131,
+    "fields": {
+      "wordEn": "Vo",
+      "wordEs": "Vo",
+      "universe": 1,
+      "urlEn": "https://coppermind.net/wiki/Vo",
+      "urlEs": "https://es.coppermind.net/wiki/Vo"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 132,
+    "fields": {
+      "wordEn": "Valendar Academy",
+      "wordEs": "Academia Valendar",
+      "universe": 14,
+      "urlEn": "https://coppermind.net/wiki/Valendar_Academy",
+      "urlEs": "https://es.coppermind.net/wiki/Academia_Valendar"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 133,
+    "fields": {
+      "wordEn": "Towers of Midnight",
+      "wordEs": "Torres de Medianoche",
+      "universe": 16,
+      "urlEn": "https://coppermind.net/wiki/Towers_of_Midnight",
+      "urlEs": "https://es.coppermind.net/wiki/Torres_de_Medianoche"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 134,
+    "fields": {
+      "wordEn": "The Scribbler",
+      "wordEs": "El Garabatos",
+      "universe": 14,
+      "urlEn": "https://coppermind.net/wiki/The_Scribbler",
+      "urlEs": "https://es.coppermind.net/wiki/El_Garabatos"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 135,
+    "fields": {
+      "wordEn": "The Emperor's Soul",
+      "wordEs": "El alma del emperador",
+      "universe": 3,
+      "urlEn": "https://coppermind.net/wiki/The_Emperor%27s_Soul",
+      "urlEs": "https://es.coppermind.net/wiki/El_alma_del_emperador"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 136,
+    "fields": {
+      "wordEn": "Synod",
+      "wordEs": "Sínodo",
+      "universe": 10,
+      "urlEn": "https://coppermind.net/wiki/Synod",
+      "urlEs": "https://es.coppermind.net/wiki/Sínodo"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 137,
+    "fields": {
+      "wordEn": "Spren",
+      "wordEs": "Spren",
+      "universe": 17,
+      "urlEn": "https://coppermind.net/wiki/Spren",
+      "urlEs": "https://es.coppermind.net/wiki/Spren"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 138,
+    "fields": {
+      "wordEn": "Skyward",
+      "wordEs": "Escuadrón",
+      "universe": 6,
+      "urlEn": "https://coppermind.net/wiki/Skyward",
+      "urlEs": "https://es.coppermind.net/wiki/Escuadrón"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 139,
+    "fields": {
+      "wordEn": "Sixth of the Dusk (character)",
+      "wordEs": "Sexto del Ocaso (personaje)",
+      "universe": 18,
+      "urlEn": "https://coppermind.net/wiki/Sixth_of_the_Dusk_(character)",
+      "urlEs": "https://es.coppermind.net/wiki/Sexto_del_Ocaso_(personaje)"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 140,
+    "fields": {
+      "wordEn": "Shade",
+      "wordEs": "Umbra",
+      "universe": 19,
+      "urlEn": "https://coppermind.net/wiki/Shade",
+      "urlEs": "https://es.coppermind.net/wiki/Umbra"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 141,
+    "fields": {
+      "wordEn": "Sazed's rings",
+      "wordEs": "Anillos de Sazed",
+      "universe": 10,
+      "urlEn": "https://coppermind.net/wiki/Sazed%27s_rings",
+      "urlEs": "https://es.coppermind.net/wiki/Anillos_de_Sazed"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 142,
+    "fields": {
+      "wordEn": "Raoden",
+      "wordEs": "Raoden",
+      "universe": 7,
+      "urlEn": "https://coppermind.net/wiki/Raoden",
+      "urlEs": "https://es.coppermind.net/wiki/Raoden"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 143,
+    "fields": {
+      "wordEn": "RAFO",
+      "wordEs": "RAFO",
+      "universe": 8,
+      "urlEn": "https://coppermind.net/wiki/RAFO",
+      "urlEs": "https://es.coppermind.net/wiki/RAFO"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 144,
+    "fields": {
+      "wordEn": "M-Bot",
+      "wordEs": "M-Bot",
+      "universe": 6,
+      "urlEn": "https://coppermind.net/wiki/M-Bot",
+      "urlEs": "https://es.coppermind.net/wiki/M-Bot"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 145,
+    "fields": {
+      "wordEn": "Legion: The Many Lives of Stephen Leeds",
+      "wordEs": "Legión: Las múltiples vidas de Stephen Leeds",
+      "universe": 9,
+      "urlEn": "https://coppermind.net/wiki/Legion:_The_Many_Lives_of_Stephen_Leeds",
+      "urlEs": "https://es.coppermind.net/wiki/Legión:_Las_múltiples_vidas_de_Stephen_Leeds"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 146,
+    "fields": {
+      "wordEn": "Kenton",
+      "wordEs": "Kenton",
+      "universe": 2,
+      "urlEn": "https://coppermind.net/wiki/Kenton",
+      "urlEs": "https://es.coppermind.net/wiki/Kenton"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 147,
+    "fields": {
+      "wordEn": "Hoid",
+      "wordEs": "Hoid",
+      "universe": 5,
+      "urlEn": "https://coppermind.net/wiki/Hoid",
+      "urlEs": "https://es.coppermind.net/wiki/Hoid"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 148,
+    "fields": {
+      "wordEn": "Elantris",
+      "wordEs": "Elantris",
+      "universe": 7,
+      "urlEn": "https://coppermind.net/wiki/Elantris",
+      "urlEs": "https://es.coppermind.net/wiki/Elantris"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 149,
+    "fields": {
+      "wordEn": "Dragonsteel Entertainment",
+      "wordEs": "Dragonsteel Entertainment",
+      "universe": 8,
+      "urlEn": "https://coppermind.net/wiki/Dragonsteel_Entertainment",
+      "urlEs": "https://es.coppermind.net/wiki/Dragonsteel_Entertainment"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 150,
+    "fields": {
+      "wordEn": "Dragon",
+      "wordEs": "Dragón",
+      "universe": null,
+      "urlEn": "https://coppermind.net/wiki/Dragon",
+      "urlEs": "https://es.coppermind.net/wiki/Dragón"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 151,
+    "fields": {
+      "wordEn": "Dan Wells",
+      "wordEs": "Dan Wells",
+      "universe": 8,
+      "urlEn": "https://coppermind.net/wiki/Dan_Wells",
+      "urlEs": "https://es.coppermind.net/wiki/Dan_Wells"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 152,
+    "fields": {
+      "wordEn": "Chalkling",
+      "wordEs": "Tizoide",
+      "universe": 14,
+      "urlEn": "https://coppermind.net/wiki/Chalkling",
+      "urlEs": "https://es.coppermind.net/wiki/Tizoide"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 153,
+    "fields": {
+      "wordEn": "Alcatraz Versus the Evil Librarians (series)",
+      "wordEs": "Alcatraz contra los bibliotecarios malvados (saga)",
+      "universe": 4,
+      "urlEn": "https://coppermind.net/wiki/Alcatraz_Versus_the_Evil_Librarians_(series)",
+      "urlEs": "https://es.coppermind.net/wiki/Alcatraz_contra_los_bibliotecarios_malvados_(saga)"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 154,
+    "fields": {
+      "wordEn": "Alcatraz Smedry",
+      "wordEs": "Alcatraz Smedry",
+      "universe": 4,
+      "urlEn": "https://coppermind.net/wiki/Alcatraz_Smedry",
+      "urlEs": "https://es.coppermind.net/wiki/Alcatraz_Smedry"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 155,
+    "fields": {
+      "wordEn": "Aether",
+      "wordEs": "Éter",
+      "universe": 5,
+      "urlEn": "https://coppermind.net/wiki/Aether",
+      "urlEs": "https://es.coppermind.net/wiki/Éter"
+    }
+  },
+  {
+    "model": "mentecobre.glossary",
+    "pk": 156,
+    "fields": {
+      "wordEn": "Aberteen",
+      "wordEs": "Siempreninas",
+      "universe": 7,
+      "urlEn": "https://coppermind.net/wiki/Aberteen",
+      "urlEs": "https://es.coppermind.net/wiki/Siempreninas"
+    }
+  }
+]

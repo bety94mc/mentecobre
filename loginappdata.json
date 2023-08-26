@@ -1,5 +1,52 @@
 [
   {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "Revisores",
+      "permissions": [
+        24,
+        25,
+        26,
+        28,
+        37,
+        38,
+        39,
+        40,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "Traductores",
+      "permissions": [
+        28,
+        37,
+        38,
+        39,
+        40,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    }
+  },
+  {
     "model": "login_app.universe",
     "pk": 1,
     "fields": {

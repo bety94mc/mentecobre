@@ -35,6 +35,7 @@ commnasd in order:
 ```
 python manage.py migrate
 python manage.py loaddata loginappdata.json
+python manage.py loaddata mentecobredata.json
 ```
 
 For security purposes, no SECRET_KEY should be included in the code. So, a .env file is needed to be created 
@@ -47,9 +48,17 @@ The key is literally anything, it has no relevance to the development environmen
 ## APPS
 
 The project uses Django with PostgreSQL. It also uses html and css to build the template part.
-This project has an app called login_app.
+This project has two apps: login_app and mentecobre
 
-### Login_app
+### login_app
 This app is focused to user control. It has 2 models:
  - Universe. It's a model only to list all the different universe that user can translate and that articles can belong.
  - CustomUser. Based in predefined django user model, it adds new fields
+
+### mentecobre
+This app is the main part of the project. It has 3 models:
+ - Articles. Model for the pages to be translated
+ - Glossary. Model to have a list of terms in both languages
+ - Cateogry. Model to have a list of categories from Coppermind
+
+The different view and templated that user can interact with will be located in this app.
