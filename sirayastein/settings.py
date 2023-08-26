@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-from pathlib import Path
 
+from django.contrib.messages import constants as messages
+from pathlib import Path
 from decouple import config
 
 
@@ -179,3 +180,11 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar": "sidebar-dark-olive",
     "theme": "flatly",
 }
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
