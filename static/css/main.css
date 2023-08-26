@@ -1,0 +1,46 @@
+body {
+    background: url("/static/img/Sasori-wallpaper.jpg") no-repeat center center fixed;
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+main {
+	flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.2);
+  line-height: 30px;
+  text-align: center;
+  border-top:solid;
+  border-color:#fe9600
+}
+
+header {
+  flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  border-bottom:solid;
+  border-color:#fe9600
+}
+
+.color-cosmere{
+    color: #fe9600
+}
+
+
+.container-topbar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.form-inline-search{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+

@@ -1,0 +1,156 @@
+ {% load usergroups %}
+ <!-- Topbar -->
+<header>
+     <nav class="navbar navbar-expand-lg topbar static-top">
+         <div class="navbar-header">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         </div>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+             <div class="container-fluid d-grid gap-6 align-items-center" style="grid-template-columns: 10fr 0fr">
+               <div class ="container-topbar">
+                  <a href="{%url 'home' %}" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto color-cosmere text-decoration-none">
+                    <img class="img-responsive" src="/static/img/cosmerelogo.jpg" width="40" height="40">
+                  </a>
+                  <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                      <a href="{%url 'home' %}" class="nav-link color-cosmere">
+                        <i class="fas fa-home d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                        Portada
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{%url 'glossary' %}" class="nav-link color-cosmere">
+                        <i class="fas fa-book d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                        Glosario
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{%url 'games' %}" class="nav-link color-cosmere">
+                        <i class="fas fa-gamepad d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                        Juegos
+                      </a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li>
+                          <a href="{% url 'admin:index' %}" class="nav-link color-cosmere">
+                           <i class="fas fa-database d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Administración
+                          </a>
+                        </li>
+                        <li>
+                          <a href="{%url 'category' %}" class="nav-link color-cosmere">
+                            <i class="fas fa-sitemap d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Categorías
+                          </a>
+                        </li>
+                        <li>
+                          <a href="{%url 'translate' %}" class="nav-link color-cosmere">
+                            <i class="fa fa-pen d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Traducción
+                          </a>
+                        </li>
+                        {% if request.user|has_group:"Revisores" %}
+                            <li>
+                          <a href="{%url 'review' %}" class="nav-link color-cosmere">
+                            <i class="fa fa-spell-check d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Revisión
+                          </a>
+                        </li>
+                        {% endif %}
+                        {% if request.user.is_superuser %}
+                            <li>
+                          <div class="dropdown show">
+                              <a href="#" class="nav-link color-cosmere text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-crow d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                                Nido de cotorras
+                              </a>
+                            <ul class="dropdown-menu text-small" style="">
+                              <li>
+                                <a class="dropdown-item" href="{%url 'rereview' %}" >
+                                  <i class="fa fa-clipboard-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                  Re-Revisiones
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="{%url 'gregorio' %}">
+                                  <i class="fa fa-eye fa-sm fa-fw mr-2 text-gray-400"></i>
+                                  Vigilante de la Traducción
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="{%url 'comparison' %}">
+                                  <i class="fa fa-globe fa-sm fa-fw mr-2 text-gray-400"></i>
+                                  Problemas Copper
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="{%url 'changes' %}">
+                                  <i class="fa fa-calendar fa-sm fa-fw mr-2 text-gray-400"></i>
+                                  Cambios mensuales
+                                </a>
+                              </li>
+
+                            </ul>
+                          </div>
+
+                        </li>
+                        {% endif %}
+                        <li>
+                          <a id="ayudalink" class="nav-link color-cosmere" href="https://sites.google.com/view/ayuda-traduccion-coppermind/inicio"target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-info-circle d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Ayuda
+                          </a>
+                        </li>
+                        <li>
+                            <div class="dropdown show">
+                                <a href="#" class="nav-link color-cosmere text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-user-circle d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                                  {{ request.user.get_username }}
+                                </a>
+                                <ul class="dropdown-menu text-small" style="">
+                                    <li>
+                                      <a class="dropdown-item" href="{% url 'profile' %}">
+                                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Perfil
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a class="dropdown-item" href="/admin/password_change/">
+                                        <i class="fa fa-pen fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Cambiar Contraseña
+                                      </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                      <a class="dropdown-item" href="/accounts/logout">
+                                        <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Desconectar
+                                      </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                           <a id="loginlink" href="{% url 'login' %}" class="nav-link color-cosmere">
+                           <i class="fas fa-sign-in-alt d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
+                            Entrar
+                          </a>
+                        </li>
+                    {% endif %}
+
+                  </ul>
+               </div>
+
+               <div class ="container-topbar">
+                   <a href="{%url 'home' %}" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto color-cosmere text-decoration-none">
+                        <img class="img-responsive" src="/static/img/logo_coppermind.jpg" width="40" height="40">
+                   </a>
+               </div>
+             </div>
+         </div>
+     </nav>
+</header>

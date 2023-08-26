@@ -1,0 +1,53 @@
+{% extends "../base/base.html" %}
+
+{% block content %}
+
+<div id="content-wrapper" class="d-flex flex-column" >
+	<div class="container-fluid align-items-center">
+
+		<!-- Page Heading -->
+		<div>
+            <h1 class="text-white text-center">Glosario</h1>
+        </div>
+		<div>
+            <h5 class="text-white text-center"> Esta herramienta te permite consultar los términos en inglés y castellano.</h5>
+            <h5 class="text-white text-center"> Para más información, navega por la <a class="text-white" href="https://es.coppermind.net/">Coppermind</a></h5>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <form id="glosario-search-form" class="form-inline-search col-md-8">
+
+                <input id="query" name="q" type="text" class="input-sm form-control" placeholder="Buscar término...">
+                <button type="submit" class="btn" style="background-color:#fe9600"><i class="fas fa-search"></i></button>
+            </form>
+            </div>
+
+	</div>
+    <div class="container-fluid">
+		<table id="glossaryDataTable" class="table table-bordered cell-border w-50 text-center">
+					<thead>
+										<tr>
+											<th scope="col">Inglés</th>
+											<th scope="col">Español</th>
+											<th scope="col">Universo</th>
+										</tr>
+										</thead>
+						<tbody>
+										{%for object in object_list %}
+											<tr>
+											<td><a href={{object.urlEn}} target="_blank" rel="noopener noreferrer"> {{object.wordEn}} </a></td>
+											<td><a href={{object.urlEs}} target="_blank" rel="noopener noreferrer"> {{object.wordEs}} </a></td>
+											<td>{{object.universe.universe}}</td>
+
+
+											</tr>
+										{%endfor%}
+						</tbody>
+		</table>
+	</div>
+    <div class="container-fluid align-items-center">
+		<h5 class="text-white text-center"><b>AVISO: Los términos relacionados con Nacidos de la bruma Era 2, Aliento de los dioses, Elantris y Arena Blanca así como otras sagas fuera del cosmere podrán sufrir/sufrirán cambios con el tiempo.</b></h5>
+	</div>
+
+</div>
+
+{% endblock %}
