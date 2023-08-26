@@ -1,5 +1,6 @@
 Django
 django_admin_multiple_choice_list_filter
 django-import-export
+django-jazzmin
 psycopg2
 python-decouple

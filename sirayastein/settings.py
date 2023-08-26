@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,5 +144,30 @@ MEDIA_URL = '/uploads/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 LOGIN_REDIRECT_URL = '/'
+
+JAZZMIN_SETTINGS = {
+    "site_logo": "img/logo_coppermind.jpg",
+    "site_logo_classes": "img-circle",
+    "site_icon": "img/favicon.ico",
+    "show_sidebar": True,
+    "welcome_sign": "Bienvenido a la mentecobre",
+    "changeform_format": "collapsible",
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.Group": "fas fa-users",
+        "login_app.CustomUser": "fas fa-user",
+        "login_app.Universe": "fas fa-globe",
+        "mentecobre.Articles": "fas fa-book-open",
+        "mentecobre.Category": "fas fa-sitemap",
+        "mentecobre.Glossary": "fas fa-book"
+    },
+    "order_with_respect_to": ["login_app.CustomUser", "login_app.Universe"],
+    'show_ui_builder': True
+}
+JAZZMIN_UI_TWEAKS = {
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "sidebar": "sidebar-dark-olive",
+    "theme": "flatly",
+}
