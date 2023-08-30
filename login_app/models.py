@@ -42,4 +42,8 @@ class CustomUser(AbstractUser):
     def get_absolute_url(self):
         return reverse('username', args=[str(self.username)])
 
+    def is_translator(self):
+        return self.groups.filter(name='Traductores').exists()
 
+    def is_reviewer(self):
+        return self.groups.filter(name='Revisores').exists()

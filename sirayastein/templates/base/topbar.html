@@ -1,4 +1,3 @@
- {% load usergroups %}
  <!-- Topbar -->
 <header>
      <nav class="navbar navbar-expand-lg topbar static-top">
@@ -51,7 +50,7 @@
                             Traducción
                           </a>
                         </li>
-                        {% if request.user|has_group:"Revisores" %}
+                        {% if request.user.is_reviewer %}
                             <li>
                           <a href="{%url 'review' %}" class="nav-link text-cosmere">
                             <i class="fa fa-spell-check d-block mx-auto mb-1" style=" text-align: center; font-size: 1.75em;"></i>
