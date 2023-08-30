@@ -60,9 +60,8 @@ class TranslateView(View):
             Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
                                                           notes=article_notes)
         elif 'form-next-article' in request.POST:
-            print(request.POST)
             userid = request.user.id
-            universe_name = request.POST.get("nextArticleUniverse", None)
+            universe_id = request.POST.get("nextArticleUniverse", None)
             assigned_date = date.today()
 
 
@@ -71,7 +70,7 @@ class TranslateView(View):
                 messages.error(request, 'Ya tienes un artículo asignado')
 
             else:
-                universe = Universe.objects.get(universe=universe_name)
+                universe = Universe.objects.get(id=universe_id)
                 TranslateManager().assign_article_to_user(universe, userid, assigned_date)
                 messages.info(request, 'Se ha asignado el artículo con éxito')
 

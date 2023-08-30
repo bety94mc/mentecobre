@@ -26,10 +26,34 @@ header {
   border-color:#fe9600
 }
 
-.color-cosmere{
-    color: #fe9600
+
+ul.nav a:hover { color: #fff !important; }
+
+a{
+  color: black;
+  background-color: transparent;
 }
 
+.th-articles, .td-articles {
+    background: transparent !important;
+    border-color: white;
+  }
+
+.text-cosmere{
+    color: #fe9600;
+}
+
+.bg-cosmere{
+    background-color: #fe9600;
+}
+
+.bg-cosmere-soft{
+    background-color: #f8c471;
+}
+
+.bg-cosmere-comp{
+    background-color: #00FE96;
+}
 
 .container-topbar{
     display: flex;
@@ -44,3 +68,65 @@ header {
     align-items:center;
 }
 
+.assign-button {
+    width: 90px;
+    white-space: normal;
+    border: 1px solid #fe9600;
+    border-radius: 0.25em;
+    box-shadow: 0 0.25em 0 0 #fe9600;
+
+}
+
+.btn-cosmere {
+    background-color:#fe9600;
+    font-weight : bold ;
+    border:none;
+}
+
+.btn-cosmere:hover {
+      background-color:#FEB040;
+      transition: 0.7s;
+      font-weight : bold ;
+  }
+
+.btn-cosmere:disabled {
+      background-color:#fe9600;
+      font-weight : bold ;
+  }
+
+.table-form
+{
+	display:table;
+	width: 100%;
+}
+
+.thead-form
+{
+	display:table-row;
+	font-weight:bold;
+}
+
+.th-form
+{
+  display:table-cell;
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+.tbody-form
+{
+	display:table-row-group;
+}
+
+.tr-form
+{
+	display:table-row;
+}
+
+.td-form
+{
+  display:table-cell;
+  padding: 0.75rem;
+  vertical-align: middle!important;
+  border-top: 1px solid white;
+}

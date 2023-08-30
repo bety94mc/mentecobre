@@ -172,7 +172,8 @@ JAZZMIN_SETTINGS = {
         "mentecobre.Glossary": "fas fa-book"
     },
     "order_with_respect_to": ["login_app.CustomUser", "login_app.Universe"],
-    'show_ui_builder': True
+    "topmenu_links": [{"name": "Mentecobre",  "url": "home"}]
+
 }
 JAZZMIN_UI_TWEAKS = {
     "accent": "accent-primary",
