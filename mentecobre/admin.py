@@ -19,7 +19,7 @@ class ArticlesAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     change_list_template = "admin/change_list_filter_confirm_sidebar.html"
     list_display = ('id', 'titleEn', 'titleEs', 'translator', 'translated', 'reviewer', 'reviewed', 'priority')
 
-    search_fields = ('titleEn', 'titleEs', 'universe')
+    search_fields = ('titleEn', 'titleEs')
 
     fieldsets = ((None, {'fields': ('pageidEn', 'pageidEs', 'titleEn', 'titleEs', 'type', 'priority', 'universe')}),
                  ('Estado Traducción', {'fields': ('translator', 'assignedDate', 'translated', 'translatedDate')}),
