@@ -32,7 +32,7 @@
 								</div>
 								<div class="tbody-form">
 									{% for article_item in article_assigned %}
-									<form method="POST" id="form-traducido" class="tr-form">
+									<form method="POST" id="form-translate"  name="form-translate" class="tr-form">
 										<div class="td-form">
 											<a style="color:black" href={{article_item.urlEn}} target="_blank" rel="noopener noreferrer">
 												{{article_item.titleEn}}
@@ -54,8 +54,8 @@
 										<div class="td-form">
 
 											{% csrf_token %}
-											<input type="hidden" id="custId" name="articleID" value={{article_item.id}}>
-											<textarea name="notes" id="formtraducidonotas" placeholder="¿Algo que comentar?">{{article_item.notes}}</textarea>
+											<input type="hidden" id="id_articleID" name="articleID" value={{article_item.id}}>
+											<textarea name="notes" id="id_notes" placeholder="¿Algo que comentar?">{{article_item.notes}}</textarea>
 										</div>
 										<div class="td-form">
 											<input name="form-translate" type="submit" value="Marcar como traducido" class="assign-button">
@@ -99,10 +99,10 @@
 							<td class="td-articles"><a style="color:black" href={{next_articles_to_assign_item.urlEs}} target="_blank" rel="noopener noreferrer">{{next_articles_to_assign_item.titleEs}}</a></td>
 							<td class="td-articles">{{next_articles_to_assign_item.universe.universe}}</td>
 							<td class="td-articles">
-							<form method="POST" id="form">
+							<form method="POST" id="form-assign-translate">
 								{% csrf_token %}
-								 <input type="hidden" id="universe" name="nextArticleUniverse" value={{next_articles_to_assign_item.universe.id}}>
-								<input name="form-next-article" type="submit" value="Asignar" class="assign-button">
+								<input type="hidden" id="id_articleUniverseID" name="articleUniverseID" value={{next_articles_to_assign_item.universe.id}}>
+								<input name="form-assign-translate" type="submit" value="Asignar" class="assign-button">
 							</form>
 							</td>
 							</tr>

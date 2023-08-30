@@ -7,6 +7,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 
 from datetime import date
 
+from .forms import TranslateArticleForm, AssignArticleForm
 from .models import Glossary, Articles
 from .manager import TranslateManager
 from login_app.models import Universe
@@ -54,24 +55,28 @@ class TranslateView(View):
 
     def post(self,request):
         if 'form-translate' in request.POST:
-            article_id = request.POST.get("articleID", None)
-            article_notes = request.POST.get("notes")
-            article_translated_date = date.today()
-            Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
-                                                          notes=article_notes)
-        elif 'form-next-article' in request.POST:
-            userid = request.user.id
-            universe_id = request.POST.get("nextArticleUniverse", None)
-            assigned_date = date.today()
+            form = TranslateArticleForm(request.POST)
+            if form.is_valid():
+                article_id =form.cleaned_data["articleID"]
+                article_notes =form.cleaned_data ["notes"]
+                article_translated_date = date.today()
+                Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
+                                                              notes=article_notes)
+        elif 'form-assign-translate' in request.POST:
+            form = AssignArticleForm(request.POST)
+            if form.is_valid():
+                universe_id = form.cleaned_data["articleUniverseID"]
+                userid = request.user.id
+                assigned_date = date.today()
 
 
-            article_assigned = TranslateManager.assigned_articles_for_user(userid)
-            if article_assigned:
-                messages.error(request, 'Ya tienes un artículo asignado')
+                article_assigned = TranslateManager.assigned_articles_for_user(userid)
+                if article_assigned:
+                    messages.error(request, 'Ya tienes un artículo asignado')
 
-            else:
-                universe = Universe.objects.get(id=universe_id)
-                TranslateManager().assign_article_to_user(universe, userid, assigned_date)
-                messages.info(request, 'Se ha asignado el artículo con éxito')
+                else:
+                    universe = Universe.objects.get(id=universe_id)
+                    TranslateManager().assign_article_to_user(universe, userid, assigned_date)
+                    messages.info(request, 'Se ha asignado el artículo con éxito')
 
         return redirect('translate')
