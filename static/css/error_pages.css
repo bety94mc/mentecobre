@@ -1,0 +1,27 @@
+.body400{
+    background: url("/static/img/400nightblood.png") no-repeat center center fixed;
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.body403 {
+    background: url("/static/img/403SYL.gif") no-repeat center center fixed;
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.body404{
+    background: url("/static/img/404wayne.png") no-repeat center center fixed;
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.body500 {
+    background: url("/static/img/500cotorras.gif") no-repeat center center fixed;
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}

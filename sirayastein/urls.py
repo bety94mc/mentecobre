@@ -24,3 +24,8 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler400 = 'mentecobre.views.errors.error_400'
+handler403 = 'mentecobre.views.errors.error_403'
+handler404 = 'mentecobre.views.errors.error_404'
+handler500 = 'mentecobre.views.errors.error_500'
