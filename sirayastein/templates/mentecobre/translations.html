@@ -46,20 +46,20 @@
 										<div class="td-form">{{article_item.universe.universe}}</div>
 										<div class="td-form">
 											{% if article_item.urldrive is not null %}
-												<a href={{article_item.urldrive}} target="_blank" rel="noopener noreferrer"><button class="btn btn-cosmere">Archivo Drive</button></a>
+												<a href={{article_item.urldrive}} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-cosmere">Archivo Drive</button></a>
 											{% else %}
-												<button class="btn btn-cosmere" disabled>Archivo Drive</button>
+												<button type="button" class="btn btn-cosmere" disabled>Archivo Drive</button>
 											{% endif %}
 										</div>
-										<div class="td-form">
 
-											{% csrf_token %}
-											<input type="hidden" id="id_articleID" name="articleID" value={{article_item.id}}>
-											<textarea name="notes" id="id_notes" placeholder="¿Algo que comentar?">{{article_item.notes}}</textarea>
-										</div>
-										<div class="td-form">
-											<input name="form-translate" type="submit" value="Marcar como traducido" class="assign-button">
-										</div>
+											<div class="td-form">
+												{% csrf_token %}
+												<input type="hidden" id="id_articleID" name="articleID" value={{article_item.id}}>
+												<textarea name="notes" id="id_notes" placeholder="¿Algo que comentar?">{{article_item.notes}}</textarea>
+											</div>
+											<div class="td-form">
+												<input name="form-translate" type="submit" value="Marcar como traducido" class="assign-button">
+											</div>
 
 									</form>
 

@@ -1,0 +1,134 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="content-wrapper" class="d-flex flex-column">
+	<div class="container-fluid">
+
+		<!-- Page Heading -->
+		<div>
+                      <h1 class="text-white text-center">Revisión</h1>
+
+        </div>
+
+		<div class="row">
+			<div class = "col-lg-6 mb-4">
+				<div class="card shadow mb-4 bg-dark-subtle">
+					<div class="card-header py-3 bg-cosmere">
+						<h6 class="fw-bold m-0 text-center">
+							¡Hola, {{user}}! El artículo en el que estás trabajando es
+						</h6>
+					</div>
+					<div class ="card-body">
+						{% if article_assigned %}
+							<div class="table-form">
+								<div class="thead-form">
+										<div class="th-form">Título En</div>
+										<div class="th-form">Título Es</div>
+										<div class="th-form">Universo</div>
+										<div class="th-form">Traductor</div>
+										<div class="th-form">Notas</div>
+										<div class="th-form">Enlazado a la Copper</div>
+										<div class="th-form"></div>
+								</div>
+								<div class="tbody-form">
+									{% for article_item in article_assigned %}
+									<form method="POST" id="form-review"  name="form-review" class="tr-form">
+										<div class="td-form">
+											<a style="color:black" href={{article_item.urlEn}} target="_blank" rel="noopener noreferrer">
+												{{article_item.titleEn}}
+											</a>
+										</div>
+										<div class="td-form">
+											<a style="color:black" href={{article_item.urlEs}} target="_blank" rel="noopener noreferrer">
+												{{article_item.titleEs}}
+											</a>
+										</div>
+										<div class="td-form">{{article_item.universe.universe}}</div>
+										<div class="td-form">{{article_item.translator.username}}</div>
+										<div class="td-form">
+											{% csrf_token %}
+											<input type="hidden" id="id_articleID" name="articleID" value={{article_item.id}}>
+
+											<textarea name="notes" id="id_notes" placeholder="¿Algo que comentar?">{{article_item.notes}}</textarea>
+										</div>
+										<div class="td-form" style="text-align: center;">
+												<div class="form-switch">
+												{% if article_item.linkcopperen == True %}
+													<input type="checkbox" class="form-check-input" id="id_linkcoppperen" name="linkcoppperen" checked required>
+												{% else %}
+													<input type="checkbox" class="form-check-input" id="id_linkcoppperen" name="linkcoppperen" required>
+												{% endif %}
+												</div>
+										</div>
+										<div class="td-form">
+											<input name="form-review" type="submit" value="Marcar como revisado" class="assign-button">
+										</div>
+
+									</form>
+
+								{% endfor %}
+								</div>
+							</div>
+
+						{% else %}
+							<p class="text-center">Oh vaya, no parece que estés trabajando ahora en nada</p>
+							<p class="text-center"><img src="{% static 'img/travoltar.gif' %}" width="250" alt="nothing" /></p>
+						{% endif %}
+					</div>
+				</div>
+
+			</div>
+			<div class = "col-lg-6 mb-4">
+				<div class="card shadow mb-4 bg-dark-subtle">
+					<div class="card-header py-3 bg-cosmere">
+						<h6 class="fw-bold m-0 text-center">
+							El siguiente artículo disponible es
+						</h6>
+					</div>
+					<div class ="card-body">
+						<table class="table">
+							<thead>
+							    <tr>
+								    <th class="th-articles">Inglés</th>
+								    <th class="th-articles">Español</th>
+								    <th class="th-articles">Universo</th>
+									<th class="th-articles">Traductor</th>
+								  <th class="th-articles"></th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for next_articles_to_assign_item in next_articles_to_assign %}
+							<tr>
+							<td class="td-articles"><a style="color:black" href={{next_articles_to_assign_item.urlEn}} target="_blank" rel="noopener noreferrer">{{next_articles_to_assign_item.titleEn}}</a></td>
+							<td class="td-articles"><a style="color:black" href={{next_articles_to_assign_item.urlEs}} target="_blank" rel="noopener noreferrer">{{next_articles_to_assign_item.titleEs}}</a></td>
+							<td class="td-articles">{{next_articles_to_assign_item.universe.universe}}</td>
+							<td class="td-articles">{{next_articles_to_assign_item.translator}}</td>
+							<td class="td-articles">
+							<form method="POST" id="form-assign-review">
+								{% csrf_token %}
+								<input type="hidden" id="id_articleUniverseID" name="articleUniverseID" value={{next_articles_to_assign_item.universe.id}}>
+								<input name="form-assign-review" type="submit" value="Asignar" class="assign-button">
+							</form>
+							</td>
+							</tr>
+						{% endfor %}
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div>
+			<h6 class="text-white text-center">Recuerda, si tienes alguna duda sobre el proceso, puedes consultarlo aquí:
+				<a class="text-info" href="https://sites.google.com/view/ayuda-traduccion-coppermind/inicio" target="_blank" rel="noopener noreferrer">Página de Ayuda</a>
+			</h6>
+		</div>
+		
+</div>
+</div>
+{% endblock %}

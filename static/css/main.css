@@ -26,8 +26,7 @@ header {
   border-color:#fe9600
 }
 
-
-ul.nav a:hover { color: #fff !important; }
+ul.nav a:hover, ul.nav a:focus { color: #fff !important; }
 
 a{
   color: black;
@@ -39,6 +38,12 @@ a{
     border-color: white;
   }
 
+.dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: #fe9600;
+}
+
+
 .text-cosmere{
     color: #fe9600;
 }
@@ -48,11 +53,7 @@ a{
 }
 
 .bg-cosmere-soft{
-    background-color: #f8c471;
-}
-
-.bg-cosmere-comp{
-    background-color: #00FE96;
+    background-color: #feb040;
 }
 
 .container-topbar{
@@ -84,7 +85,7 @@ a{
 }
 
 .btn-cosmere:hover {
-      background-color:#FEB040;
+      background-color:#feb040;
       transition: 0.7s;
       font-weight : bold ;
   }
@@ -129,4 +130,20 @@ a{
   padding: 0.75rem;
   vertical-align: middle!important;
   border-top: 1px solid white;
+}
+
+.form-check-input{
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(254, 150, 0, 1)'/%3e%3c/svg%3e") !important;
+}
+
+.form-check-input:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e") !important;
+    background-color: #fe9600 !important;
+    border-color: #fe9600 !important;
+}
+
+.form-check-input:focus {
+     border-color: rgba(254, 150, 0, 0.8);
+     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 150, 0, 0.6);
+     outline: 0 none;
 }
