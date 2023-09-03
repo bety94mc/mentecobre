@@ -1,4 +1,7 @@
+
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views import View
@@ -7,9 +10,9 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 
 from datetime import date
 
-from .forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm
-from .models import Glossary, Articles
-from .manager import TranslateManager, ReviewManager
+from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm
+from mentecobre.models import Glossary, Articles
+from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager
 from login_app.models import Universe
 
 
@@ -35,26 +38,85 @@ class GlossaryView(View):
             context={"object_list": object_list}
         )
 
-class ReviewView(View):
+class RereviewView(LoginRequiredMixin, View):
+    login_url = "/login/"
+    redirect_field_name = "redirect_to"
+    def get(self, request):
+        user = request.user
+
+        if not user.is_superuser:
+            raise PermissionDenied
+
+        userid = user.id
+        username = user.username
+        universes = user.universe
+
+        article_assigned = ReReviewManager.get_assigned_articles_for_user(userid)
+        list_next_articles_to_assign = ReReviewManager().get_list_next_article_to_assign(universes, userid)
+
+        return render(
+            request,
+            'mentecobre/rereviews.html',
+            context={"user": username, "article_assigned": article_assigned,
+                     "next_articles_to_assign": list_next_articles_to_assign},
+        )
+    def post(self, request):
+
+        if not request.user.is_reviewer():
+            raise PermissionDenied
+
+
+        if 'form-rereview' in request.POST:
+            form = ReReviewArticleForm(request.POST)
+            if form.is_valid():
+                article_id = form.cleaned_data["articleID"]
+                Articles.objects.filter(pk=article_id).update(engregoriado=True)
+
+        elif 'form-assign-rereview' in request.POST:
+            form = AssignArticleForm(request.POST)
+            if form.is_valid():
+                universe_id = form.cleaned_data["articleUniverseID"]
+                userid = request.user.id
+
+                article_assigned = ReReviewManager.get_assigned_articles_for_user(userid)
+                if article_assigned:
+                    messages.error(request, 'Ya tienes un artículo asignado')
+
+                else:
+                    universe = Universe.objects.get(id=universe_id)
+                    ReReviewManager().assign_article_to_user(universe, userid)
+                    messages.info(request, 'Se ha asignado el artículo con éxito')
+
+        return redirect('rereview')
+
+class ReviewView(LoginRequiredMixin, View):
+    login_url = "/login/"
+    redirect_field_name = "redirect_to"
+
     def get(self, request):
         user = request.user
         userid = user.id
         username = user.username
         universes = user.universe
 
+        if not user.is_reviewer():
+            raise PermissionDenied
+
         article_assigned = ReviewManager.get_assigned_articles_for_user(userid)
         list_next_articles_to_assign = ReviewManager().get_list_next_article_to_assign(universes, userid)
-
-        form = ReviewArticleForm()
 
         return render(
             request,
             'mentecobre/reviews.html',
             context={"user": username, "article_assigned": article_assigned,
-                     "next_articles_to_assign": list_next_articles_to_assign, "form":form},
+                     "next_articles_to_assign": list_next_articles_to_assign},
         )
 
     def post(self, request):
+
+        if not request.user.is_reviewer():
+            raise PermissionDenied
+
         if 'form-review' in request.POST:
             form = ReviewArticleForm(request.POST)
             if form.is_valid():
@@ -81,7 +143,10 @@ class ReviewView(View):
 
         return redirect('review')
 
-class TranslateView(View):
+class TranslateView(LoginRequiredMixin, View):
+    login_url = "/login/"
+    redirect_field_name = "redirect_to"
+
     def get(self, request):
         user = request.user
         userid = user.id
