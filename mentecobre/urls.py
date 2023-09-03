@@ -4,7 +4,7 @@ from django.urls import path, re_path
 from .views import base
 
 urlpatterns = [
-    path('portada',base.GlossaryView.as_view(),name='home'),
+    path('',base.GlossaryView.as_view(),name='home'),
     path('glosario',base.GlossaryView.as_view(),name='glossary'),
     path('juegos',base.GlossaryView.as_view(),name='games'),
     path('categorías',base.GlossaryView.as_view(),name='category'),
