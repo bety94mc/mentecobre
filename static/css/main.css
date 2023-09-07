@@ -147,3 +147,114 @@ a{
      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 150, 0, 0.6);
      outline: 0 none;
 }
+
+.progress-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px;
+}
+.progress-outer{
+    background: #fff;
+    padding: 5px 5px 5px 5px;
+    border: 5px solid #fe9600;
+    border-radius: 45px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.progress{
+    background: #d3d3d3;
+    border-radius: 20px;
+    margin: 0;
+}
+.progress .progress-bar{
+    box-shadow: none;
+    animation: animate-positive 2s;
+}
+
+@keyframes animate-positive{
+    0%{ width: 0; }
+}
+
+.progress .progress-bar-cosmere{
+    background-color: #fe9600;
+}
+
+.progress .progress-bar-cosmere-dark{
+    background-color: #9F5E00;
+}
+
+.progress .innerProgress {
+  position: absolute;
+  width: 90%;
+  text-align: right;
+  overflow: visible;
+}
+
+.counter{
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    padding: 20px 15px 15px;
+    margin: 0 auto;
+    border: 3px solid #ffffff;
+    border-radius: 10px 10px;
+    position: relative;
+    z-index: 1;
+}
+.counter:before,
+.counter:after{
+    content: "";
+    background: #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 4px 4px 2px rgba(0,0,0,0.2);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    z-index: -1;
+}
+.counter:after{
+    background: transparent;
+    width: 75px;
+    height: 75px;
+    border: 10px solid #fe9600;
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 10px;
+    box-shadow: none;
+    top: auto;
+    left: -5px;
+    bottom: -5px;
+    right: auto;
+}
+.counter .counter-icon{
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0 0 10px;
+    transition: all 0.3s ease 0s;
+}
+.counter:hover .counter-icon{ transform: rotateY(360deg); }
+.counter .counter-value{
+    color: #555;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 10px;
+    margin: 0 0 10px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+.counter:hover .counter-value{ text-shadow: 2px 2px 0 #d1d8e0; }
+.counter h3{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}

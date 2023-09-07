@@ -2,11 +2,68 @@
 
 {% extends "../base/base.html" %}
 
-{% block title %} Index Page {% endblock %}
-
 {% block content %}
 
 
-Code HERE
+<div id="content-wrapper" class="d-flex flex-column">
+
+	<div class="container-fluid">
+                       <div class="text-center"> <h1 class="text-white">MENTECOBRE</h1> </div>
+					   <div class="text-center"> <p class="text-white">Te damos la bienvenida al proyecto de traducción de la Coppermind al español</p> </div>
+
+
+		<div class="container-fluid" style="padding-top:30px" >
+				<div class="row justify-content-center" >
+							<h3 class="text-center text-white">¿Y cómo va la traducción? </h3>
+				</div>
+                <div class="row justify-content-center" style="padding-top:15px; padding-bottom:25px;">
+                    <div class="col-md-2 col-sm-4">
+                        <div class="counter">
+                            <div class="counter-icon">
+                                <i class="fa fa-pen"></i>
+                            </div>
+                            <span class="counter-value">{{num_articles_translated}}</span>
+                            <h3>Artículos traducidos</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <div class="counter">
+                            <div class="counter-icon">
+                                <i class="fa fa-spell-check"></i>
+                            </div>
+                            <span class="counter-value">{{num_articles_reviewed}}</span>
+                            <h3>Artículos revisados</h3>
+                        </div>
+                    </div>
+                </div>
+				<div class="row justify-content-center" style="padding-top:25px">
+                    <div class="col-md-6">
+                        <div class="progress-outer">
+                            <div class="progress fw-bold">
+                                <div class="progress-bar progress-bar-striped progress-bar-cosmere-dark" style="width:{{reviewed_progress}}%;" aria-valuenow="{{num_articles_reviewed}}"   aria-valuemin="0" aria-valuemax="{{num_articles_total}}">Revisados: {{reviewed_progress}}% </div>
+                                <div class="progress-bar progress-bar-striped progress-bar-cosmere" style="width:{{diff_progress}}%;" aria-valuenow="{{translated_progress}}" aria-valuemin="0" aria-valuemax="{{num_articles_total}}">Traducidos: {{translated_progress}}%</div>
+                                <div class="innerProgress"> Artículos totales: {{num_articles_total}} </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center" style="padding-top:15px; padding-bottom:15px;">
+                    <div class="col-md-5 col-sm-10">
+                                    {% autoescape off %}
+                                        <div>{{universes_chart}}</div>
+                                    {% endautoescape %}
+                    </div>
+                    <div class="col-md-5 col-sm-10">
+                                    {% autoescape off %}
+                                        <div>{{month_chart}}</div>
+                                    {% endautoescape %}
+                    </div>
+                </div>
+
+		</div>
+
+	</div>
+</div>
 
 {% endblock %}

@@ -12,9 +12,12 @@ from datetime import date
 
 from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm
 from mentecobre.models import Glossary, Articles
-from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager
+from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager
 from login_app.models import Universe
 
+import locale
+
+locale.setlocale(locale.LC_TIME, 'es_ES')
 
 # Create your views here.
 
@@ -36,6 +39,35 @@ class GlossaryView(View):
             request,
             'mentecobre/glossary.html',
             context={"object_list": object_list}
+        )
+
+class HomeView(View):
+    def __init__(self):
+        self.manager = HomeManager()
+        self.databasemanager = DatabaseManager()
+
+    @xframe_options_exempt
+    def get(self, request):
+
+        num_articles_total = self.databasemanager.get_num_articles(self.databasemanager.get_qs_articles_all())
+        num_articles_translated = self.databasemanager.get_num_articles(
+            self.databasemanager.get_qs_articles_translate())
+        num_articles_reviewed = self.databasemanager.get_num_articles(self.databasemanager.get_qs_articles_reviewed())
+
+        translated_progress = self.manager.obtain_progress(num_articles_total, num_articles_translated)
+        reviewed_progress = self.manager.obtain_progress(num_articles_total, num_articles_reviewed)
+        diff_progress = translated_progress - reviewed_progress
+
+        universes_chart = self.manager.get_universes_chart()
+        month_chart = self.manager.get_month_chart()
+
+        return render(
+            request,
+            'mentecobre/index.html',
+            context={'num_articles_total': num_articles_total, 'num_articles_translated': num_articles_translated,
+                     'num_articles_reviewed': num_articles_reviewed, 'translated_progress': translated_progress,
+                     'reviewed_progress': reviewed_progress,'diff_progress':diff_progress,
+                     'universes_chart': universes_chart, 'month_chart': month_chart}
         )
 
 class RereviewView(LoginRequiredMixin, View):
