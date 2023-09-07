@@ -37,6 +37,10 @@ table tbody tr:last-child td:last-child
     border-bottom-right-radius: 15px;
 }
 
+.dataTables_filter input {
+  color: white !important;
+}
+
 .dataTables_wrapper .dataTables_paginate{
     color:white;
 }

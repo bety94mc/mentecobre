@@ -6,12 +6,13 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.decorators.clickjacking import xframe_options_exempt
+from django.views.generic import ListView
 
 
 from datetime import date
 
 from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm
-from mentecobre.models import Glossary, Articles
+from mentecobre.models import Glossary, Articles, Category
 from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager
 from login_app.models import Universe
 
@@ -20,6 +21,10 @@ import locale
 locale.setlocale(locale.LC_TIME, 'es_ES')
 
 # Create your views here.
+class CategoryListView(LoginRequiredMixin, ListView):
+    model = Category
+    template_name = 'mentecobre/category.html'
+    context_object_name = 'category_list'
 
 class GlossaryView(View):
 

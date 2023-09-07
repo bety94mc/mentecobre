@@ -1,0 +1,33 @@
+{% extends "../base/base.html" %}
+
+{% block content %}
+<div id="content-wrapper" class="d-flex flex-column">
+    <div class="container-fluid">
+            <h1 class="text-white text-center">Categoría</h1>
+            <p class="text-white text-center"> Lista de categorías.</p>
+	</div>
+    <div class="container-fluid">
+		{% if category_list %}
+    		<table id="categoryDataTable" class="table table-bordered cell-border w-50 text-center">
+				<thead>
+					<tr>
+						<th scope="col">Inglés</th>
+						<th scope="col">Español</th>
+					</tr>
+				</thead>
+				<tbody>
+					{%for object in category_list %}
+						<tr>
+							<td><a href={{object.urlEn}} target="_blank" rel="noopener noreferrer"> {{object.catEn}} </a></td>
+							<td><a href={{object.urlEs}} target="_blank" rel="noopener noreferrer"> {{object.catEs}} </a></td>
+						</tr>
+					{%endfor%}
+				</tbody>
+			</table>
+		{% else %}
+				<p class="text-white text-center"> No hay lista de categorías </p>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}

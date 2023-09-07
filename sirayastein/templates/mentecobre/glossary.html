@@ -25,23 +25,23 @@
     <div class="container-fluid">
 		<table id="glossaryDataTable" class="table table-bordered cell-border w-50 text-center">
 					<thead>
-										<tr>
-											<th scope="col">Inglés</th>
-											<th scope="col">Español</th>
-											<th scope="col">Universo</th>
-										</tr>
-										</thead>
-						<tbody>
-										{%for object in object_list %}
-											<tr>
-											<td><a href={{object.urlEn}} target="_blank" rel="noopener noreferrer"> {{object.wordEn}} </a></td>
-											<td><a href={{object.urlEs}} target="_blank" rel="noopener noreferrer"> {{object.wordEs}} </a></td>
-											<td>{{object.universe.universe}}</td>
+						<tr>
+							<th scope="col">Inglés</th>
+							<th scope="col">Español</th>
+							<th scope="col">Universo</th>
+						</tr>
+					</thead>
+					<tbody>
+						{%for object in object_list %}
+							<tr>
+							<td><a href={{object.urlEn}} target="_blank" rel="noopener noreferrer"> {{object.wordEn}} </a></td>
+							<td><a href={{object.urlEs}} target="_blank" rel="noopener noreferrer"> {{object.wordEs}} </a></td>
+							<td>{{object.universe.universe}}</td>
 
 
-											</tr>
-										{%endfor%}
-						</tbody>
+							</tr>
+						{%endfor%}
+					</tbody>
 		</table>
 	</div>
     <div class="container-fluid align-items-center">
