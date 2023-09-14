@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 from django.db.models import Count, Q
+from django.core.exceptions import ObjectDoesNotExist
 
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.offline import plot
 import plotly.express as px
+import requests
 
 from .models import Articles
 from login_app.models import Universe
@@ -13,7 +15,122 @@ EXCLUDED_TYPE = ['RD', 'DIS', 'SUB']
 EXCLUDED_UNIVERSES = [13]
 PRIORITY_OPTIONS = [1, 2, 3]
 
+class CoppermindManager:
+    @staticmethod
+    def conect_to_coppermind(url, params):
+        response = requests.Session().get(url=url, params=params)
+        return response.json()
 
+    def assigned_and_reviewed_cross_check(self,inprogress_list, assigned_list, reviewedCopper_list, articles_reviewed_list):
+        error_list = []
+        error_inprogress = 'Este artículo está en In progress pero no está asignado a nadie'
+        error_asigned = 'Este artículo está asignado pero no está en In progress'
+        error_translated_page = 'Este artículo está en Translated page pero no está marcado como revisado'
+        error_reviewed = 'Este artículo está revisado pero no está en Translated page'
+
+        for inprogress in inprogress_list:
+            if tuple(inprogress) not in assigned_list:
+                try:
+                    article_error = Articles.objects.get(pageidEs=inprogress[0])
+                    if article_error.problemCopper:
+                        if error_inprogress not in article_error.problemCopper:
+                            article_error.problemCopper = f'{article_error.problemCopper} \n{error_inprogress}'
+                    else:
+                        article_error.problemCopper = error_inprogress
+                    article_error.save()
+                except ObjectDoesNotExist as e:
+                    error_list.append((inprogress[1], 'Tiene un in_progress'))
+
+        for asigned in assigned_list:
+            if list(asigned) not in inprogress_list:
+                article_error = Articles.objects.get(pageidEs=asigned[0])
+                if article_error.problemCopper:
+                    if error_asigned not in article_error.problemCopper:
+                        article_error.problemCopper = f'{article_error.problemCopper} \n{error_asigned}'
+                else:
+                    article_error.problemCopper = error_asigned
+                article_error.save()
+
+        for reviewedCopper in reviewedCopper_list:
+            if tuple(reviewedCopper) not in articles_reviewed_list:
+                try:
+                    article_error = Articles.objects.get(pageidEs=reviewedCopper[0])
+                    if article_error.problemCopper:
+                        if error_translated_page not in  article_error.problemCopper:
+                            article_error.problemCopper = f'{article_error.problemCopper} \n{error_translated_page}'
+                    else:
+                        article_error.problemCopper = error_translated_page
+                    article_error.save()
+
+                except ObjectDoesNotExist as e:
+                    error_list.append((inprogress[1], 'Tiene un Translated page'))
+
+        for reviewed in articles_reviewed_list:
+            if list(reviewed) not in reviewedCopper_list:
+                article_error = Articles.objects.get(pageidEs=reviewed[0])
+
+                if article_error.problemCopper:
+                    if error_reviewed not in article_error.problemCopper:
+                        article_error.problemCopper = f'{article_error.problemCopper} \n{error_reviewed}'
+                else:
+                    article_error.problemCopper = error_reviewed
+                article_error.save()
+
+        error_qs = Articles.objects.exclude(Q(problemCopper='')|Q(problemCopper=None))
+
+        return error_qs, error_list
+    def get_coppermind_values(self):
+        inprogress = self.get_inprogress()
+        translatedpage = self.get_translatedpage()
+        return inprogress, translatedpage
+
+    def get_inprogress(self):
+        template = "24207"  # In-progress Template
+        inprogress_list = self.get_template_list(template)
+
+        return inprogress_list
+
+    def get_template_list(self, template):
+
+        url = 'https://es.coppermind.net/w/api.php'
+        params = {
+            "action": "query",  #action type
+            "format": "json",  #output type
+            "prop": "transcludedin",  #what is included in template
+            "pageids": template,
+            "tilimit": "max"
+        }
+
+        template_list = []
+        response_info = self.conect_to_coppermind(url, params)
+        results = response_info["query"]["pages"][template]["transcludedin"]
+
+        for i in range(len(results)):
+            template_list.append([results[i]["pageid"], results[i]["title"]])
+
+        try:
+            siguiente = response_info["continue"]["ticontinue"]
+        except KeyError:
+            siguiente = ''
+
+        while siguiente != '':
+            params["ticontinue"] = siguiente
+            response_info = self.conect_to_coppermind(url, params)
+            results = response_info["query"]["pages"][template]["transcludedin"]
+            for i in range(len(results)):
+                template_list.append([results[i]["pageid"], results[i]["title"]])
+            try:
+                siguiente = response_info["continue"]["ticontinue"]
+            except KeyError:
+                siguiente = ''
+
+        return template_list
+
+    def get_translatedpage(self):
+        template = "23774"  # Translatedpage template
+        translatedpage_list = self.get_template_list(template)
+
+        return translatedpage_list
 
 class DatabaseManager:
 

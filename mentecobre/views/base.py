@@ -11,9 +11,11 @@ from django.views.generic import ListView
 
 from datetime import date
 
-from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm
+from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm, \
+    ProblemArticleForm
 from mentecobre.models import Glossary, Articles, Category
-from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager
+from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager, \
+    CoppermindManager
 from login_app.models import Universe
 
 import locale
@@ -25,6 +27,55 @@ class CategoryListView(LoginRequiredMixin, ListView):
     model = Category
     template_name = 'mentecobre/category.html'
     context_object_name = 'category_list'
+
+class CopperproblemView(LoginRequiredMixin, View):
+    def __init__(self):
+        self.manager = CoppermindManager()
+        self.databasemanager = DatabaseManager()
+
+    def get(self, request):
+
+        if not request.user.is_superuser:
+            raise PermissionDenied
+
+        inprogressCopper, reviewedCopper = self.manager.get_coppermind_values()
+        reviewed_articles = self.databasemanager.get_qs_articles_reviewed()
+        assigned_and_not_reviewed_articles = self.databasemanager.get_qs_articles_assigned_not_reviewed()
+
+        num_reviewed = self.databasemanager.get_num_articles(reviewed_articles)
+        num_assigned_and_not_reviewed = self.databasemanager.get_num_articles(assigned_and_not_reviewed_articles)
+        num_inprogressCopper = len(inprogressCopper)
+        num_reviewedCopper = len(reviewedCopper)
+
+        articles_reviewed_list = list(reviewed_articles.values_list('pageidEs', 'titleEs'))
+        assigned_and_not_reviewed_articles_list = list(
+            assigned_and_not_reviewed_articles.values_list('pageidEs', 'titleEs')
+        )
+
+        error_qs, error_list = self.manager.assigned_and_reviewed_cross_check(
+            inprogressCopper, assigned_and_not_reviewed_articles_list, reviewedCopper, articles_reviewed_list
+        )
+
+        return render(
+            request,
+            'mentecobre/problemCopper.html',
+            context={'num_reviewed': num_reviewed, 'num_assigned_and_not_reviewed': num_assigned_and_not_reviewed,
+                     'num_inprogressCopper': num_inprogressCopper, 'num_reviewedCopper': num_reviewedCopper,
+                     'error_qs': error_qs, 'error_list':error_list}
+        )
+
+    def post(self, request):
+        if not request.user.is_superuser:
+            raise PermissionDenied
+
+        if 'form-fix-problemCopper' in request.POST:
+            form = ProblemArticleForm(request.POST)
+            if form.is_valid():
+                article_id = form.cleaned_data["articleID"]
+                Articles.objects.filter(pk=article_id).update(problemCopper=None)
+
+        return redirect('copperproblem')
+
 
 class GlossaryView(View):
 
@@ -99,7 +150,7 @@ class RereviewView(LoginRequiredMixin, View):
         )
     def post(self, request):
 
-        if not request.user.is_reviewer():
+        if not request.user.is_superuser():
             raise PermissionDenied
 
 

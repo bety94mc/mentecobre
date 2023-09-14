@@ -1,0 +1,94 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="content-wrapper" class="d-flex flex-column">
+    <div class="row justify-content-center" style="padding-top:10px">
+        <div class="col-md-2 col-sm-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <i class="fa fa-pen"></i>
+                </div>
+                <span class="counter-value">{{num_assigned_and_not_reviewed}}</span>
+                <h3>Artículos Asignados y no revisados</h3>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <i class="fa fa-spell-check"></i>
+                </div>
+                <span class="counter-value">{{num_inprogressCopper}}</span>
+                <h3>Artículos In_progress</h3>
+            </div>
+        </div>
+         <div class="col-md-2 col-sm-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <i class="fa fa-pen"></i>
+                </div>
+                <span class="counter-value">{{num_reviewed}}</span>
+                <h3>Artículos Revisados</h3>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+            <div class="counter">
+                <div class="counter-icon">
+                    <i class="fa fa-spell-check"></i>
+                </div>
+                <span class="counter-value">{{num_reviewedCopper}}</span>
+                <h3>Artículos Translated page</h3>
+            </div>
+        </div>
+    </div>
+    {% if error_qs %}
+
+    <div class="container-fluid">
+		 <table class="table table-bordered stripe text-center" id="problemCoppertable" width="70%" >
+            <thead>
+                <th>Artículo</th>
+                <th>Problema</th>
+                <th>Enlace a Admin</th>
+                <th>Enlace a Coppermind</th>
+                <th>Solucionado</th>
+            </thead>
+            <tbody>
+            {% for article in error_qs %}
+                 <tr>
+                     <td> {{article.titleEs}} </td>
+                     <td> {{article.problemCopper}} </td>
+                     <td><a href="{% url 'admin:mentecobre_articles_change' article.id %}" target="_blank" rel="noopener noreferrer">A la Nave Nodriza</a></td>
+                     <td><a href={{article.urlEs}} target="_blank" rel="noopener noreferrer">A la CopperEs</a></td>
+                     <td>
+                        <form method="POST" id="form-fix-problemCopper">
+                            {% csrf_token %}
+                            <input type="hidden" id="id_articleID" name="articleID" value={{article.id}}>
+                            <input name="form-fix-problemCopper" type="submit" value="Arreglado" class="assign-button">
+                        </form>
+                     </td>
+                 </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+	</div>
+    {% else %}
+    <div class ="card">
+            <p>WOW Parece que todo cuadra</p>
+    </div>
+    {% endif %}
+    {% if error_list %}
+        <div class="card row justify-content-center w-75 mx-auto" style="padding-top:10px; margin-bottom:10px">
+            <div class = "card-body" >
+                <p class="row justify-content-center"> Hay una lista de artículos que no hemos encontrado en la herramienta </p>
+                <ul>
+                {% for article_error in error_list %}
+                        <li class="list-group-item text-center"> {{article_error}} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

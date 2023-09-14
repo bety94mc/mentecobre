@@ -3,6 +3,9 @@ from django import forms
 class AssignArticleForm(forms.Form):
     articleUniverseID = forms.IntegerField()
 
+class ProblemArticleForm(forms.Form):
+    articleID = forms.IntegerField()
+
 class ReReviewArticleForm(forms.Form):
     articleID = forms.IntegerField()
 
