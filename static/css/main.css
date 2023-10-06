@@ -178,10 +178,12 @@ a{
 
 .progress .progress-bar-cosmere{
     background-color: #fe9600;
+    color: black;
 }
 
 .progress .progress-bar-cosmere-dark{
     background-color: #9F5E00;
+
 }
 
 .progress .innerProgress {
