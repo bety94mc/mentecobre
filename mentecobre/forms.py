@@ -18,5 +18,6 @@ class TranslateArticleForm(forms.Form):
     articleID = forms.IntegerField()
     notes = forms.CharField(widget=forms.Textarea)
 
-
-
+class ChangesForm(forms.Form):
+    start_date = forms.DateField(widget=forms.DateInput(attrs=dict(type='date')), label='Fecha inicial')
+    end_date = forms.DateField(widget=forms.DateInput(attrs=dict(type='date')), label='Fecha final')

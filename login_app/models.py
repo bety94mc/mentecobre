@@ -27,12 +27,14 @@ class Universe(models.Model):
 class CustomUser(AbstractUser):
 
     is_resting = models.BooleanField(default=False, verbose_name='Descanso', help_text='Indica si este usuario está en un descanso temporal.')
-
+    copper_username = models.CharField(null=True, blank=True, verbose_name='Nombre de usuario en Coppermind')
     rol = models.CharField(max_length=3, choices=USER_ROL, null=True, blank=True)
-    universe = models.ManyToManyField(Universe, blank=True, related_name='user_universe', symmetrical=False)
+    universe = models.ManyToManyField(Universe, blank=True, related_name='user_universe', symmetrical=False,
+                                      verbose_name='Universo')
     notes = models.TextField(null=True, blank=True, verbose_name='Notas')
     timeoff_date = models.DateField(null=True, blank=True, verbose_name='Fecha de descanso')
     out_date = models.DateField(null=True, blank=True, verbose_name='Fecha de salida')
+
 
     USERNAME_FIELD = "username"
 

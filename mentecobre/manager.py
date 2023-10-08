@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from datetime import date, timedelta
+
 from django.db.models import Count, Q
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -9,17 +11,101 @@ import plotly.express as px
 import requests
 
 from .models import Articles
-from login_app.models import Universe
+from login_app.models import Universe, CustomUser
 
 EXCLUDED_TYPE = ['RD', 'DIS', 'SUB']
 EXCLUDED_UNIVERSES = [13]
 PRIORITY_OPTIONS = [1, 2, 3]
 
 class CoppermindManager:
+
+    SECTION_TRANSLATE = {
+        'Principal': '0',
+        'Coppermind': '4',
+        'Resumen': '3000',
+        'Categorías': '14',
+        'Plantillas': '10'
+    }
+
     @staticmethod
     def conect_to_coppermind(url, params):
         response = requests.Session().get(url=url, params=params)
         return response.json()
+
+    @staticmethod
+    def get_moved_articles(changes_df):
+        all_articles = Articles.objects.all()
+        all_articles_df = pd.DataFrame(list(all_articles.values('pageidEn', 'titleEn', 'titleEs')))
+
+        changes_df_with_all_articles = pd.merge(changes_df, all_articles_df, 'left', left_on='PageID',
+                                                right_on='pageidEn')
+
+        articles_with_changes = changes_df_with_all_articles[changes_df_with_all_articles['pageidEn'].notnull()]
+
+        articles_moved_full = articles_with_changes.loc[
+            articles_with_changes.Page_tittle != articles_with_changes.titleEn]
+
+        articles_moved = articles_moved_full[['PageID', 'Page_tittle', 'titleEn']].drop_duplicates()
+
+        return articles_moved
+
+    @staticmethod
+    def get_new_articles(changes_df):
+        all_articles = Articles.objects.all()
+        all_articles_df = pd.DataFrame(list(all_articles.values('pageidEn', 'titleEn', 'titleEs')))
+
+        changes_df_with_all_articles = pd.merge(changes_df, all_articles_df, 'left', left_on='PageID', right_on='pageidEn')
+
+        new_articles_full = changes_df_with_all_articles[changes_df_with_all_articles['pageidEn'].isnull()]
+        new_articles = new_articles_full[['PageID', 'Page_tittle', ]].drop_duplicates()
+
+        return new_articles
+
+    @staticmethod
+    def get_not_assigned_not_translated_articles(changes_df):
+        not_assigned_not_translated_articles = Articles.objects.filter(translator__isnull=True).filter(translated=False)
+
+        not_assigned_not_translated_articles_df = pd.DataFrame(
+            list(not_assigned_not_translated_articles.values('pageidEn', 'titleEn', 'titleEs'))
+        )
+
+        changes_df_with_not_assigned_not_translated_articles = pd.merge(changes_df,
+                                                                        not_assigned_not_translated_articles_df, 'left',
+                                                                        left_on='PageID', right_on='pageidEn')
+
+        not_assigned_not_translated_articles_full = changes_df_with_not_assigned_not_translated_articles[
+            changes_df_with_not_assigned_not_translated_articles['pageidEn'].notnull()]
+
+        not_assigned_not_translated_articles = not_assigned_not_translated_articles_full[
+            ['PageID', 'Page_tittle', 'titleEs']].drop_duplicates()
+
+        return not_assigned_not_translated_articles
+
+    @staticmethod
+    def get_translated_articles(changes_df):
+        assigned_articles = Articles.objects.filter(translator__isnull=False)
+        assigned_articles_df = pd.DataFrame(list(assigned_articles.values('pageidEn', 'titleEn', 'titleEs')))
+
+        changes_df_with_assigned_articles = pd.merge(changes_df, assigned_articles_df, 'left', left_on='PageID',
+                                                     right_on='pageidEn')
+        assigned_articles_full = changes_df_with_assigned_articles[changes_df_with_assigned_articles['pageidEn'].notnull()]
+
+        translated_articles_wot = Articles.objects.filter(translator__isnull=True).filter(translated=True)
+        translated_articles_wot_df = pd.DataFrame(list(translated_articles_wot.values('pageidEn', 'titleEn', 'titleEs')))
+
+        changes_df_with_translated_articles_wot = pd.merge(changes_df, translated_articles_wot_df, 'left', left_on='PageID',
+                                                           right_on='pageidEn')
+        translated_articles_wot_full = changes_df_with_translated_articles_wot[changes_df_with_translated_articles_wot['pageidEn'].notnull()]
+
+        translated_articles_full = pd.concat([assigned_articles_full, translated_articles_wot_full])
+        translated_articles = translated_articles_full[['PageID', 'Page_tittle', 'titleEs']].drop_duplicates()
+
+        return translated_articles
+
+    @staticmethod
+    def turn_date_to_str(datetime_object: date) -> str:
+        datetime_str = datetime_object.strftime('%Y-%m-%d')
+        return datetime_str
 
     def assigned_and_reviewed_cross_check(self,inprogress_list, assigned_list, reviewedCopper_list, articles_reviewed_list):
         error_list = []
@@ -79,6 +165,7 @@ class CoppermindManager:
         error_qs = Articles.objects.exclude(Q(problemCopper='')|Q(problemCopper=None))
 
         return error_qs, error_list
+
     def get_coppermind_values(self):
         inprogress = self.get_inprogress()
         translatedpage = self.get_translatedpage()
@@ -132,6 +219,168 @@ class CoppermindManager:
 
         return translatedpage_list
 
+    def get_articles(self, language):
+        pages_df = pd.DataFrame(columns=['PageID', 'Title', 'URL'])
+        if language == 'en':
+            url = 'https://coppermind.net/w/api.php'
+        else:
+            url = 'https://es.coppermind.net/w/api.php'
+
+        for section in self.SECTION_TRANSLATE.values():
+            new_pages_df = self.get_articles_list(url, section)
+            pages_df = pd.concat([pages_df, new_pages_df])
+
+        return pages_df
+
+    def get_articles_list(self, url, section):
+
+        params = {
+            "action": "query",
+            "format": "json",
+            "prop": "info",
+            "generator": "allpages",
+            "inprop": "url",
+            "gapnamespace": section,
+            "gaplimit": "max"
+        }
+
+        response_info = self.conect_to_coppermind(url, params)
+        allpageslist = []
+
+        for id in response_info['query']['pages']:
+            allpageslist.append([id, response_info['query']['pages'][id]['title'],
+                                 response_info['query']['pages'][id]['fullurl']])
+
+        try:
+            next_one = response_info['continue']['gapcontinue']  # 501 value
+        except KeyError:
+            next_one = ''
+
+        while next_one != "":
+
+            params['gapcontinue']= next_one
+            response_info = self.conect_to_coppermind(url, params)
+
+            for page_id in response_info['query']['pages']:
+                allpageslist.append([page_id, response_info['query']['pages'][page_id]['title'],
+                                     response_info['query']['pages'][page_id]['fullurl']])
+
+            try:
+                next_one = response_info['continue']['gapcontinue']
+            except KeyError as err:
+                next_one = ''
+
+        pages_df = pd.DataFrame(data=allpageslist, columns=['PageID', 'Title', 'URL'])
+
+        return pages_df
+
+    def get_changes(self, dates_list):
+        changes_df = pd.DataFrame(columns=['PageID', 'Page_tittle', 'Page_Revision_ID', 'Change_ID',
+                                                   'Change_Date', 'Change_type', 'Edited_by'])
+        reviewers_list = list(CustomUser.objects.filter(groups__name__in=['Revisores']).values_list('copper_username',
+                                                                                              flat=True).distinct())
+
+        for date_block in dates_list:
+            for section in self.SECTION_TRANSLATE.values():
+                for minor in ['!minor', 'minor']:
+                    new_changes_df = self.get_changes_list(date_block[0], date_block[1], section, minor)
+                    changes_df = pd.concat([changes_df, new_changes_df])
+
+        changes_df = changes_df[~changes_df.Edited_by.isin(reviewers_list)]
+
+        return changes_df
+
+    def get_changes_list(self, start_date, end_date, section, minor):
+
+        url = 'https://coppermind.net/w/api.php'
+        params = {
+            "action": "query",  # action type
+            "format": "json",  # output format
+            "list": "recentchanges",  # get recent changes
+            "rcstart": end_date + "T00:00:00.000Z",  # start_date (most recent value)
+            "rcend": start_date + "T00:00:00.000Z",  # end_date (oldest value)
+            "rcdir": "older",  # get changes from older to newer
+            # namespaces: Principal (0), Coppermind(4), Summary(3000), Categories(14), Templates(10)
+            "rcnamespace": section,
+            "rcprop": "title|timestamp|ids|user",  # data info to obtain
+            "rcshow": minor,
+            "rclimit": "max",
+            "rctype": "edit|new|log|categorize",  # change type
+        }
+        response_info = self.conect_to_coppermind(url, params)
+
+        changeslist = []
+
+        for query_info in response_info['query']['recentchanges']:
+            try:
+                changeslist.append([query_info['pageid'], query_info['title'], query_info['revid'], query_info['rcid'],
+                                    query_info['timestamp'], query_info['type'], query_info['user']])
+
+            except KeyError as err:
+                query_info[err.args[0]] = '' #If there is one of fields not present in the query, it is added as empty field
+                changeslist.append([query_info['pageid'], query_info['title'], query_info['revid'], query_info['rcid'],
+                                    query_info['timestamp'], query_info['type'], query_info['user']])
+
+        try:
+            next_one = response_info['continue']['rccontinue']
+        except KeyError:
+            next_one = ''
+        while next_one != "":  # siempre que esté relleno el next_one, iteramos
+                params = {
+                    "action": "query",  # action type
+                    "format": "json",  # output format
+                    "list": "recentchanges",  # get recent changes
+                    "rcstart": end_date + "T00:00:00.000Z",  # start_date (most recent value)
+                    "rcend": start_date + "T00:00:00.000Z",  # end_date (oldest value)
+                    "rcdir": "older",  # get changes from older to newer
+                    # namespaces: Principal (0), Coppermind(4), Summary(3000), Categories(14), Templates(10)
+                    "rcnamespace": section,
+                    "rcprop": "title|timestamp|ids|user",  # data info to obtain
+                    "rcshow": minor,
+                    "rclimit": "max",
+                    "rctype": "edit|new|log|categorize",  # change type
+                    "rccontinue": next_one,  # por si hay más de 500 cambios en el mismo periodo
+                }
+
+                response_info = self.conect_to_coppermind(url, params)
+
+                for query_info in response_info['query']['recentchanges']:
+                    try:
+                        changeslist.append(
+                            [query_info['pageid'], query_info['title'], query_info['revid'], query_info['rcid'],
+                             query_info['timestamp'], query_info['type'], query_info['user']])
+
+                    except KeyError as err:
+                        query_info[err.args[0]] = ''  # If there is one of fields not present in the query, it is added as empty field
+                        changeslist.append(
+                            [query_info['pageid'], query_info['title'], query_info['revid'], query_info['rcid'],
+                             query_info['timestamp'], query_info['type'], query_info['user']])
+                try:
+                    next_one = response_info['continue']['rccontinue']
+                except KeyError as err:
+                    next_one = ''
+
+        changeslist_df = pd.DataFrame(data=changeslist,
+                                          columns=['PageID', 'Page_tittle', 'Page_Revision_ID', 'Change_ID',
+                                                   'Change_Date', 'Change_type', 'Edited_by'])
+        return changeslist_df
+
+    def split_period_in_weeks(self, start_date: date, end_date: date) -> list:
+
+        dates_list = []
+        interim_date_1 = start_date
+        interim_date_2 = interim_date_1 + timedelta(days=7)
+        while interim_date_2 < end_date:
+            interim_date_1_str = self.turn_date_to_str(interim_date_1)
+            interim_date_2_str = self.turn_date_to_str(interim_date_2)
+            dates_list.append([interim_date_1_str, interim_date_2_str])
+            interim_date_1 = interim_date_2
+            interim_date_2 = interim_date_1 + timedelta(days=7)
+        dates_list.append([self.turn_date_to_str(interim_date_1), self.turn_date_to_str(end_date)])
+
+        return dates_list
+
+
 class DatabaseManager:
 
     @staticmethod
@@ -172,6 +421,7 @@ class DatabaseManager:
         return Articles.objects.filter(priority__in=PRIORITY_OPTIONS, translated=False).exclude(
             Q(type__in=EXCLUDED_TYPE) | Q(universe__in=EXCLUDED_UNIVERSES)
         )
+
 
 class HomeManager:
 
@@ -308,6 +558,7 @@ class HomeManager:
 
         return plot({'data': graphs, 'layout': layout},  output_type='div')
 
+
 class ReviewBaseManager(ABC):
     def assign_article_to_user(self, universe, userid):
         raise NotImplementedError('Método no implementado')
@@ -324,7 +575,7 @@ class ReviewBaseManager(ABC):
 
         return non_assigned_articles
 
-    @abstractmethod
+    @staticmethod
     def get_next_article_to_assign(universe_item, userid):
         raise NotImplementedError('Método no implementado')
 
@@ -348,6 +599,7 @@ class ReReviewManager(ReviewBaseManager):
 
         return article
 
+
 class ReviewManager(ReviewBaseManager):
 
     def assign_article_to_user(self, universe, userid, assignedDate):
@@ -364,6 +616,7 @@ class ReviewManager(ReviewBaseManager):
         ).exclude(type__in=EXCLUDED_TYPE).exclude(translator=userid).order_by('priority', 'titleEn').first()
 
         return article
+
 
 class TranslateManager:
 

@@ -1,0 +1,43 @@
+{% extends "../base/base.html" %}
+
+{% block content %}
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <div class="split left">
+        <div class="centered">
+            <div class="card" style="background-color: rgba(255, 255, 255, 0.5)">
+               <div class="card-header bg-cosmere" id="headingcambios">
+                  <h5 class="mb-0 text-white">
+                      Sacar cambios
+                  </h5>
+               </div>
+               <div class="card-body">
+                   <form method="POST" id="form-copper-changes">
+                       {% csrf_token %}
+                       {{form.as_p }}
+                       <input name="form-copper-changes" type="submit" value="Descargar" class="assign-button">
+                   </form>
+               </div>
+            </div>
+        </div >
+
+    </div>
+    <div class="split right">
+      <div class="centered">
+         <div class="card"  style="background-color: rgba(255, 255, 255, 0.5)">
+           <div class="card-header bg-cosmere" id="headinglists">
+                <h5 class="mb-0 text-white">
+                      Sacar Listados de la Coppermind
+                </h5>
+             </div>
+           <div class="card-body">
+                <a href="cambios/listadocopper" class="btn btn-cosmere" tabindex="-1" role="button">Sacar listado</a>
+           </div>
+         </div>
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -13,8 +13,8 @@ class CustomUserAdmin(ImportExportModelAdmin, UserAdmin):
 
     list_display = ('id', 'username')
 
-    fieldsets = ((None, {'fields': ('username', 'password')}),
-                 ('Extra Info', {'fields': ('rol', 'universe')}),
+    fieldsets = ((None, {'fields': ('username','copper_username', 'password')}),
+                 ('Extra Info', {'fields': ('rol', 'universe',)}),
                  ('Permisos', {'fields': ('groups', 'is_superuser', 'is_staff', 'is_active', 'is_resting')}),
                  ('Fechas',{'fields':('date_joined','timeoff_date','out_date')})
                  )

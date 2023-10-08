@@ -1,18 +1,18 @@
-
+import pandas as pd
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.generic import ListView
 
-
 from datetime import date
 
 from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm, \
-    ProblemArticleForm
+    ProblemArticleForm, ChangesForm
 from mentecobre.models import Glossary, Articles, Category
 from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager, \
     CoppermindManager
@@ -22,46 +22,114 @@ import locale
 
 locale.setlocale(locale.LC_TIME, 'es_ES')
 
+
 # Create your views here.
 class CategoryListView(LoginRequiredMixin, ListView):
     model = Category
     template_name = 'mentecobre/category.html'
     context_object_name = 'category_list'
 
-class CopperproblemView(LoginRequiredMixin, View):
-    def __init__(self):
-        self.manager = CoppermindManager()
-        self.databasemanager = DatabaseManager()
+
+class ChangesView(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+
+        if not user.is_superuser:
+            raise PermissionDenied
+
+        form = ChangesForm(initial={'start_date': date.today().strftime('%Y-%m-%d'),
+                                    'end_date': date.today().strftime('%Y-%m-%d')})
+        return render(
+            request,
+            'mentecobre/changesCopper.html',
+            context={'form': form},
+        )
+
+    def post(self, request):
+        user = request.user
+
+        if not user.is_superuser:
+            raise PermissionDenied
+
+        if 'form-copper-changes' in request.POST:
+            form = ChangesForm(request.POST)
+            if form.is_valid():
+                start_date = form.cleaned_data['start_date']
+                end_date = form.cleaned_data['end_date']
+
+                manager = CoppermindManager()
+                dates_list = manager.split_period_in_weeks(start_date, end_date)
+                changes_df = manager.get_changes(dates_list)
+                new_articles = manager.get_new_articles(changes_df)
+                translated_articles = manager.get_translated_articles(changes_df)
+                not_assigned_not_translated_articles = manager.get_not_assigned_not_translated_articles(changes_df)
+                moved_articles = manager.get_moved_articles(changes_df)
+
+                response = HttpResponse(content_type='application/xlsx')
+                response['Content-Disposition'] = f'attachment; filename="Cambios.xlsx"'
+                with pd.ExcelWriter(response) as writer:
+                    new_articles.to_excel(writer, sheet_name='Articulos_nuevos')
+                    translated_articles.to_excel(writer, sheet_name='Articulos_traducidos')
+                    not_assigned_not_translated_articles.to_excel(writer, sheet_name='Articulos_sin_traducir')
+                    moved_articles.to_excel(writer, sheet_name='HTUP')
+
+                return response
+
+
+
+class CopperListView(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+
+        if not user.is_superuser:
+            raise PermissionDenied
+
+        manager = CoppermindManager()
+        copper_list_english = manager.get_articles('en')
+        copper_list_spanish = manager.get_articles('es')
+        response = HttpResponse(content_type='application/xlsx')
+        response['Content-Disposition'] = f'attachment; filename="articuloscopper.xlsx"'
+        with pd.ExcelWriter(response) as writer:
+            copper_list_english.to_excel(writer, sheet_name='Articulos_listado ingles')
+            copper_list_spanish.to_excel(writer, sheet_name='Articulos_listado español')
+
+        return response
+
+
+class CopperProblemView(LoginRequiredMixin, View):
 
     def get(self, request):
 
         if not request.user.is_superuser:
             raise PermissionDenied
 
-        inprogressCopper, reviewedCopper = self.manager.get_coppermind_values()
-        reviewed_articles = self.databasemanager.get_qs_articles_reviewed()
-        assigned_and_not_reviewed_articles = self.databasemanager.get_qs_articles_assigned_not_reviewed()
+        manager = CoppermindManager()
+        databasemanager = DatabaseManager()
 
-        num_reviewed = self.databasemanager.get_num_articles(reviewed_articles)
-        num_assigned_and_not_reviewed = self.databasemanager.get_num_articles(assigned_and_not_reviewed_articles)
-        num_inprogressCopper = len(inprogressCopper)
-        num_reviewedCopper = len(reviewedCopper)
+        inprogress_copper, reviewed_copper = manager.get_coppermind_values()
+        reviewed_articles = databasemanager.get_qs_articles_reviewed()
+        assigned_and_not_reviewed_articles = databasemanager.get_qs_articles_assigned_not_reviewed()
+
+        num_reviewed = databasemanager.get_num_articles(reviewed_articles)
+        num_assigned_and_not_reviewed = databasemanager.get_num_articles(assigned_and_not_reviewed_articles)
+        num_inprogress_copper = len(inprogress_copper)
+        num_reviewed_copper = len(reviewed_copper)
 
         articles_reviewed_list = list(reviewed_articles.values_list('pageidEs', 'titleEs'))
         assigned_and_not_reviewed_articles_list = list(
             assigned_and_not_reviewed_articles.values_list('pageidEs', 'titleEs')
         )
 
-        error_qs, error_list = self.manager.assigned_and_reviewed_cross_check(
-            inprogressCopper, assigned_and_not_reviewed_articles_list, reviewedCopper, articles_reviewed_list
+        error_qs, error_list = manager.assigned_and_reviewed_cross_check(
+            inprogress_copper, assigned_and_not_reviewed_articles_list, reviewed_copper, articles_reviewed_list
         )
 
         return render(
             request,
             'mentecobre/problemCopper.html',
             context={'num_reviewed': num_reviewed, 'num_assigned_and_not_reviewed': num_assigned_and_not_reviewed,
-                     'num_inprogressCopper': num_inprogressCopper, 'num_reviewedCopper': num_reviewedCopper,
-                     'error_qs': error_qs, 'error_list':error_list}
+                     'num_inprogressCopper': num_inprogress_copper, 'num_reviewedCopper': num_reviewed_copper,
+                     'error_qs': error_qs, 'error_list': error_list}
         )
 
     def post(self, request):
@@ -97,38 +165,38 @@ class GlossaryView(View):
             context={"object_list": object_list}
         )
 
+
 class HomeView(View):
-    def __init__(self):
-        self.manager = HomeManager()
-        self.databasemanager = DatabaseManager()
 
     @xframe_options_exempt
     def get(self, request):
+        manager = HomeManager()
+        databasemanager = DatabaseManager()
 
-        num_articles_total = self.databasemanager.get_num_articles(self.databasemanager.get_qs_articles_all())
-        num_articles_translated = self.databasemanager.get_num_articles(
-            self.databasemanager.get_qs_articles_translate())
-        num_articles_reviewed = self.databasemanager.get_num_articles(self.databasemanager.get_qs_articles_reviewed())
+        num_articles_total = databasemanager.get_num_articles(databasemanager.get_qs_articles_all())
+        num_articles_translated = databasemanager.get_num_articles(
+            databasemanager.get_qs_articles_translate())
+        num_articles_reviewed = databasemanager.get_num_articles(databasemanager.get_qs_articles_reviewed())
 
-        translated_progress = self.manager.obtain_progress(num_articles_total, num_articles_translated)
-        reviewed_progress = self.manager.obtain_progress(num_articles_total, num_articles_reviewed)
+        translated_progress = manager.obtain_progress(num_articles_total, num_articles_translated)
+        reviewed_progress = manager.obtain_progress(num_articles_total, num_articles_reviewed)
         diff_progress = translated_progress - reviewed_progress
 
-        universes_chart = self.manager.get_universes_chart()
-        month_chart = self.manager.get_month_chart()
+        universes_chart = manager.get_universes_chart()
+        month_chart = manager.get_month_chart()
 
         return render(
             request,
             'mentecobre/index.html',
             context={'num_articles_total': num_articles_total, 'num_articles_translated': num_articles_translated,
                      'num_articles_reviewed': num_articles_reviewed, 'translated_progress': translated_progress,
-                     'reviewed_progress': reviewed_progress,'diff_progress':diff_progress,
+                     'reviewed_progress': reviewed_progress, 'diff_progress': diff_progress,
                      'universes_chart': universes_chart, 'month_chart': month_chart}
         )
 
+
 class RereviewView(LoginRequiredMixin, View):
-    login_url = "/login/"
-    redirect_field_name = "redirect_to"
+
     def get(self, request):
         user = request.user
 
@@ -148,11 +216,11 @@ class RereviewView(LoginRequiredMixin, View):
             context={"user": username, "article_assigned": article_assigned,
                      "next_articles_to_assign": list_next_articles_to_assign},
         )
+
     def post(self, request):
 
         if not request.user.is_superuser():
             raise PermissionDenied
-
 
         if 'form-rereview' in request.POST:
             form = ReReviewArticleForm(request.POST)
@@ -177,10 +245,8 @@ class RereviewView(LoginRequiredMixin, View):
 
         return redirect('rereview')
 
-class ReviewView(LoginRequiredMixin, View):
-    login_url = "/login/"
-    redirect_field_name = "redirect_to"
 
+class ReviewView(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
         userid = user.id
@@ -231,9 +297,8 @@ class ReviewView(LoginRequiredMixin, View):
 
         return redirect('review')
 
+
 class TranslateView(LoginRequiredMixin, View):
-    login_url = "/login/"
-    redirect_field_name = "redirect_to"
 
     def get(self, request):
         user = request.user
@@ -244,7 +309,6 @@ class TranslateView(LoginRequiredMixin, View):
         article_assigned = TranslateManager.get_assigned_articles_for_user(userid)
         list_next_articles_to_assign = TranslateManager().get_list_next_article_to_assign(universes)
 
-
         return render(
             request,
             'mentecobre/translations.html',
@@ -252,12 +316,12 @@ class TranslateView(LoginRequiredMixin, View):
                      "next_articles_to_assign": list_next_articles_to_assign},
         )
 
-    def post(self,request):
+    def post(self, request):
         if 'form-translate' in request.POST:
             form = TranslateArticleForm(request.POST)
             if form.is_valid():
-                article_id =form.cleaned_data["articleID"]
-                article_notes =form.cleaned_data ["notes"]
+                article_id = form.cleaned_data["articleID"]
+                article_notes = form.cleaned_data["notes"]
                 article_translated_date = date.today()
                 Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
                                                               notes=article_notes)
@@ -267,7 +331,6 @@ class TranslateView(LoginRequiredMixin, View):
                 universe_id = form.cleaned_data["articleUniverseID"]
                 userid = request.user.id
                 assigned_date = date.today()
-
 
                 article_assigned = TranslateManager.get_assigned_articles_for_user(userid)
                 if article_assigned:
