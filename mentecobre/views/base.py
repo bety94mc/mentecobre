@@ -16,7 +16,7 @@ from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArti
 from mentecobre.models import Glossary, Articles, Category
 from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager, \
     CoppermindManager
-from login_app.models import Universe
+from login_app.models import Universe, CustomUser
 
 import locale
 
@@ -298,6 +298,40 @@ class ReviewView(LoginRequiredMixin, View):
         return redirect('review')
 
 
+class ProfileView(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        userid = user.id
+        translator_assigned_articles = None
+        translator_assigned_articles_finished_count = 0
+        reviewer_assigned_articles = None
+        reviewer_assigned_articles_finished_count = 0
+
+        if user.is_translator():
+            translator_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, 'Translator')
+            translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid, 'Translator')
+            translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(translator_assigned_articles_finished)
+
+        if user.is_reviewer():
+            reviewer_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, 'Reviewer')
+            reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
+                                                                                                               'Reviewer')
+            reviewer_assigned_articles_finished_count = DatabaseManager.get_num_articles(reviewer_assigned_articles_finished)
+
+        return render(
+            request,
+            'mentecobre/profile.html',
+            context={"user": user,
+                     "translator_assigned": translator_assigned_articles,
+                     "reviewer_assigned": reviewer_assigned_articles,
+                     "num_translated": translator_assigned_articles_finished_count,
+                     "num_reviewed": reviewer_assigned_articles_finished_count
+                     },
+        )
+
+
+
+
 class TranslateView(LoginRequiredMixin, View):
 
     def get(self, request):
@@ -342,3 +376,5 @@ class TranslateView(LoginRequiredMixin, View):
                     messages.info(request, 'Se ha asignado el artículo con éxito')
 
         return redirect('translate')
+
+

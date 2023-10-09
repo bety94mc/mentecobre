@@ -422,6 +422,34 @@ class DatabaseManager:
             Q(type__in=EXCLUDED_TYPE) | Q(universe__in=EXCLUDED_UNIVERSES)
         )
 
+    @staticmethod
+    def get_qs_articules_assigned_to_user(userid, type_user):
+        qs = None
+        if type_user == 'Translator':
+            qs = Articles.objects.filter(
+                translator=userid, priority__in=PRIORITY_OPTIONS
+            ).exclude(type__in=EXCLUDED_TYPE).order_by('-assignedDate')
+        if type_user == 'Reviewer':
+            qs = Articles.objects.filter(
+                reviewer=userid, priority__in=PRIORITY_OPTIONS
+            ).exclude(type__in=EXCLUDED_TYPE).order_by('-reviewerassignedDate')
+
+        return qs
+
+    @staticmethod
+    def get_qs_articules_assigned_to_user_finished(userid, type_user):
+        qs = None
+        if type_user == 'Translator':
+            qs = Articles.objects.filter(
+                translator=userid, priority__in=PRIORITY_OPTIONS, translated=True
+            ).exclude(type__in=EXCLUDED_TYPE).order_by('-assignedDate')
+        if type_user == 'Reviewer':
+            qs = Articles.objects.filter(
+                reviewer=userid, priority__in=PRIORITY_OPTIONS, reviewed=True
+            ).exclude(type__in=EXCLUDED_TYPE).order_by('-reviewerassignedDate')
+
+        return qs
+
 
 class HomeManager:
 
@@ -557,6 +585,7 @@ class HomeManager:
         }
 
         return plot({'data': graphs, 'layout': layout},  output_type='div')
+
 
 
 class ReviewBaseManager(ABC):

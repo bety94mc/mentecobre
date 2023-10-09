@@ -21,4 +21,18 @@ $(document).ready(function () {
                 url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json'
             }
 	    });
+        $('#profile_table_translated').DataTable( {
+            "info": false,
+             "language": {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json'
+            }
+
+        });
+        $('#profile_table_reviewed').DataTable( {
+            "info": false,
+             "language": {
+                url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json'
+            }
+
+        });
     });

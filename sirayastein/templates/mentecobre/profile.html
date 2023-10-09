@@ -1,0 +1,123 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="content-wrapper" class="d-flex flex-column">
+	<div class="container-fluid">
+
+		<!-- Page Heading -->
+		<div style="text-align: center;">
+                        <h1 class="text-white">Mi Perfil</h1>
+        </div>
+
+<div class="card-group">
+	<div class ="card bg-transparent">
+		<div class ="card-header bg-cosmere-soft">
+            <div style="text-align: center;">
+                <h3 class="fw-bold"> {{user.username}}</h3>
+                <p> {% for universe in user.universe.all %}{{ universe.universe }}, {% endfor %} </p> </div>
+		</div>
+		<div class="card-body">
+            {% if translator_assigned %}
+            <div class="card-group">
+                <div class ="card bg-transparent border-0">
+                    <div class ="card-header">
+                        <div style="text-align: center;"> <h3 class="fw-bold text-white"> Mis artículos traducidos</h3></div>
+                    </div>
+                    <div class="card-body">
+                        <table id="profile_table_translated" class="table table-bordered table-striped">
+                    <thead>
+                        <th> Artículo </th>
+                        <th> Estado </th>
+                    </thead>
+                    <tbody>
+                    {% for article in translator_assigned%}
+                    <tr>
+                        <td> {{article.titleEs}} </td>
+                        {% if not article.translated %}
+                            <td> En curso </td>
+                        {% else %}
+                            <td> Traducido </td>
+                        {% endif %}
+                    </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+                    </div>
+                </div>
+                <div class ="card bg-transparent border-0">
+                    <div class ="card-header ">
+                        <div style="text-align: center;"> <h3 class="fw-bold text-white"> Mis contadores</h3></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center" style="padding-top:10px">
+
+									<div class="counter">
+										<div class="counter-icon">
+											<i class="fa fa-pen"></i>
+										</div>
+										<span class="counter-value">{{num_translated}}</span>
+										<h3>Artículos traducidos</h3>
+									</div>
+
+				        </div>
+                    </div>
+                </div>
+            </div>
+            {%  endif %}
+            {% if reviewer_assigned %}
+                <div class="card-group">
+                    <div class ="card bg-transparent border-0">
+                    <div class ="card-header">
+                        <div style="text-align: center;"> <h3 class="fw-bold text-white"> Mis artículos revisados</h3></div>
+                    </div>
+                    <div class="card-body">
+                        <table id="profile_table_reviewed" class="table table-bordered table-striped">
+                            <thead>
+                                <th> Artículo </th>
+                                <th> Estado </th>
+                            </thead>
+                            <tbody>
+                            {% for article in reviewer_assigned %}
+                            <tr>
+                                <td> {{article.titleEs}} </td>
+                                {% if not article.reviewed %}
+                                    <td> En curso </td>
+                                {% else %}
+                                    <td> Revisado </td>
+                                {% endif %}
+                            </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <div class ="card bg-transparent border-0">
+                        <div class ="card-header">
+                            <div style="text-align: center;"> <h3 class="fw-bold text-white"> Mis contadores</h3></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row justify-content-center" style="padding-top:10px">
+                                <div class="col-md-3 col-sm-6">
+                                            <div class="counter">
+                                                <div class="counter-icon">
+                                                    <i class="fa fa-spell-check"></i>
+                                                </div>
+                                                <span class="counter-value">{{num_reviewed}}</span>
+                                                <h3>Artículos revisados</h3>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {%  endif %}
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
