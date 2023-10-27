@@ -6,7 +6,7 @@
     {% for user_item in users_list %}
         {% if user_item.status == 'resting' %}
              <div class="card tarjeta bg-dark-subtle">
-                 <p> {{ user_item.username }} </p>
+                 <a href="/perfil/{{ user_item.username }}"> {{ user_item.username }} </a>
                  <p>{{ user_item.last_movement}}</p>
                  <div class="boton-container">
                      <form method="POST" id="form-gregorio"  name="form-gregorio">
@@ -20,7 +20,7 @@
             </div>
         {% else %}
             <div class="card tarjeta bg-cosmere-soft">
-                <p> {{ user_item.username }} </p>
+                 <a href="/perfil/{{ user_item.username }}"> {{ user_item.username }} </a>
                 <p  style="color:{{ user_item.color }}">{{ user_item.last_movement}}</p>
                 <div class="boton-container">
                     <form method="POST" id="form-gregorio"  name="form-gregorio">

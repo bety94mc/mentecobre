@@ -16,5 +16,6 @@ urlpatterns = [
     path('cambios', base.ChangesView.as_view(), name='changes'),
     path('cambios/listadocopper', base.CopperListView.as_view(), name='copperlist'),
     path('perfil', base.ProfileView.as_view(), name='profile'),
+    path('perfil/<username>/', base.ProfileView.as_view(), name='user-profile'),
     path('login', base.GlossaryView.as_view(), name='login'),
 ]

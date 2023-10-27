@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.generic import ListView
@@ -339,8 +339,13 @@ class ReviewView(LoginRequiredMixin, View):
 
 
 class ProfileView(LoginRequiredMixin, View):
-    def get(self, request):
-        user = request.user
+    def get(self, request, username):
+        if not username:
+            user = request.user
+        else:
+            if not request.user.is_superuser:
+                raise PermissionDenied
+            user = get_object_or_404(CustomUser, username=username)
         userid = user.id
         translator_assigned_articles = None
         translator_assigned_articles_finished_count = 0
