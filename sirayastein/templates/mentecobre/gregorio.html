@@ -1,0 +1,41 @@
+{% extends "../base/base.html" %}
+{% load static %}
+{% block content %}
+<h1 class="text-white text-center">VIGILANTE DE LA TRADUCCIÓN</h1>
+<div class="contenedor">
+    {% for user_item in users_list %}
+        {% if user_item.status == 'resting' %}
+             <div class="card tarjeta bg-dark-subtle">
+                 <p> {{ user_item.username }} </p>
+                 <p>{{ user_item.last_movement}}</p>
+                 <div class="boton-container">
+                     <form method="POST" id="form-gregorio"  name="form-gregorio">
+                         {% csrf_token %}
+                         <input type="hidden" name="username" value="{{user_item.username}}">
+                         <button class="assign-button " type="submit" name="status" value="Resting" disabled>Descanso</button>
+                         <button class="assign-button " type="submit" name="status" value="Inactive">Inactivo</button>
+                         <button class="assign-button " type="submit" name="status" value="Active">Activo</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="card tarjeta bg-cosmere-soft">
+                <p> {{ user_item.username }} </p>
+                <p  style="color:{{ user_item.color }}">{{ user_item.last_movement}}</p>
+                <div class="boton-container">
+                    <form method="POST" id="form-gregorio"  name="form-gregorio">
+                         {% csrf_token %}
+                         <input type="hidden" name="username" value="{{user_item.username}}">
+                         <button class="assign-button " type="submit" name="status" value="Resting">Descanso</button>
+                         <button class="assign-button " type="submit" name="status" value="Inactive">Inactivo</button>
+                         <button class="assign-button " type="submit" name="status" value="Active" disabled>Activo</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                    <div class="fila"></div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

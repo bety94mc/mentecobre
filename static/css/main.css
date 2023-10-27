@@ -292,3 +292,34 @@ a{
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+.contenedor {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    padding: 10px;
+    margin: 10px;
+    width: 350px;
+    height: 150px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+.fila::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px; /* Ajusta el espacio entre los botones y el texto */
+}
+.boton{
+    width: 30%;
+}

@@ -86,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('POSTGRES_NAME'),
         'USER': config('POSTGRES_USER'),
-        'PASSWORD':config('POSTGRES_PASSWORD'),
-        'HOST': 'db',
-        'PORT': 5432,
+        'PASSWORD': config('POSTGRES_PASSWORD'),
+        'HOST': config('POSTGRES_HOST'),
+        'PORT': config('POSTGRES_PORT'),
     }
 }
 
@@ -154,6 +154,11 @@ IMPORT_EXPORT_SKIP_ADMIN_LOG = True
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 
 LOGIN_REDIRECT_URL = "/"
+
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+
+SESSION_COOKIE_SECURE = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+
 
 JAZZMIN_SETTINGS = {
     "site_logo": "img/logo_coppermind.jpg",

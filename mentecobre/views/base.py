@@ -12,10 +12,10 @@ from django.views.generic import ListView
 from datetime import date
 
 from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm, \
-    ProblemArticleForm, ChangesForm
+    ProblemArticleForm, ChangesForm, GregorioForm
 from mentecobre.models import Glossary, Articles, Category
 from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager, \
-    CoppermindManager
+    CoppermindManager, GregorioManager
 from login_app.models import Universe, CustomUser
 
 import locale
@@ -74,7 +74,6 @@ class ChangesView(LoginRequiredMixin, View):
                     moved_articles.to_excel(writer, sheet_name='HTUP')
 
                 return response
-
 
 
 class CopperListView(LoginRequiredMixin, View):
@@ -165,6 +164,47 @@ class GlossaryView(View):
             context={"object_list": object_list}
         )
 
+
+class GregorioView(LoginRequiredMixin, View):
+
+    def get(self, request):
+        if not request.user.is_superuser:
+            raise PermissionDenied
+
+        users_list = GregorioManager().get_users_list()
+
+        return render(
+            request,
+            'mentecobre/gregorio.html',
+            context={"users_list": users_list},
+        )
+
+    def post(self, request):
+        print('HEMOS LLEGADO')
+        if not request.user.is_superuser:
+            raise PermissionDenied
+
+        form = GregorioForm(request.POST)
+        print(form)
+        if form.is_valid():
+            print('EL FORM ES VALIDO')
+            username = form.cleaned_data["username"]
+            status = form.cleaned_data["status"]
+            print(username)
+            print(status)
+            today = date.today()
+            if status == 'Resting':
+                CustomUser.objects.filter(username=username).update(is_resting=True, is_active=False,
+                                                                    timeoff_date=today)
+            elif status == 'Inactive':
+                CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False, is_staff=False,
+                                                                    out_date=today)
+            elif status == 'Active':
+                CustomUser.objects.filter(username=username).update(is_resting=False, is_active=True, out_date=None)
+            else:
+                raise Exception('Not valid status')
+
+        return redirect('gregorio')
 
 class HomeView(View):
 
@@ -309,14 +349,17 @@ class ProfileView(LoginRequiredMixin, View):
 
         if user.is_translator():
             translator_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, 'Translator')
-            translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid, 'Translator')
-            translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(translator_assigned_articles_finished)
+            translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
+                                                                                                               'Translator')
+            translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(
+                translator_assigned_articles_finished)
 
         if user.is_reviewer():
             reviewer_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, 'Reviewer')
             reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                               'Reviewer')
-            reviewer_assigned_articles_finished_count = DatabaseManager.get_num_articles(reviewer_assigned_articles_finished)
+                                                                                                             'Reviewer')
+            reviewer_assigned_articles_finished_count = DatabaseManager.get_num_articles(
+                reviewer_assigned_articles_finished)
 
         return render(
             request,
@@ -328,8 +371,6 @@ class ProfileView(LoginRequiredMixin, View):
                      "num_reviewed": reviewer_assigned_articles_finished_count
                      },
         )
-
-
 
 
 class TranslateView(LoginRequiredMixin, View):
@@ -376,5 +417,3 @@ class TranslateView(LoginRequiredMixin, View):
                     messages.info(request, 'Se ha asignado el artículo con éxito')
 
         return redirect('translate')
-
-
