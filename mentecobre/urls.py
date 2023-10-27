@@ -6,7 +6,7 @@ from .views import base
 urlpatterns = [
     path('', base.HomeView.as_view(), name='home'),
     path('glosario', base.GlossaryView.as_view(), name='glossary'),
-    path('juegos', base.GlossaryView.as_view(), name='games'),
+    path('juegos', base.CopperHopperView.as_view(), name='games'),
     path('categorías', base.CategoryListView.as_view(), name='category'),
     path('traducciones', base.TranslateView.as_view(), name='translate'),
     path('revisiones', base.ReviewView.as_view(), name='review'),

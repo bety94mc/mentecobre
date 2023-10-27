@@ -1,3 +1,5 @@
+import random
+
 import pandas as pd
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -75,6 +77,19 @@ class ChangesView(LoginRequiredMixin, View):
 
                 return response
 
+class CopperHopperView(View):
+    def __init__(self):
+        self.databasemanager = DatabaseManager()
+    def get(self, request):
+
+        articulos_traducidos = self.databasemanager.get_qs_articles_translate()
+
+        random_articles = random.sample(list(articulos_traducidos.values()), 2)
+        return render(
+            request,
+            'mentecobre/copperhopper.html',
+            context={'random_articles': random_articles}
+        )
 
 class CopperListView(LoginRequiredMixin, View):
     def get(self, request):

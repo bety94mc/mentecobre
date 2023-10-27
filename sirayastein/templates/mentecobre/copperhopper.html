@@ -1,0 +1,71 @@
+{% load static %}
+{{random_articles|json_script:"pagesList" }}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Sira">
+    <meta name="google-site-verification" content="7_DBc3TIWsgRPGOOmXAWN9K8Z30DCkpKN4CMEzcFVSo" />
+    <title>Mentecobre </title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico'"/>
+    <link rel="stylesheet" href="/static/css/copperhopper.css" />
+
+</head>
+<body class="m-auto bg-cover">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src = "/static/js/copperhopper.js"> </script>
+<div id="content-wrapper" class="d-flex flex-column">
+    <div class="from">
+      <div class="title">Cargando artículo...</div>
+      <div class="info"></div>
+    </div>
+    <div class="to">
+      <div class="title">Cargando artículo...</div>
+      <div class="info"></div>
+    </div>
+    <ul class="tracker">
+      <li class="temp">...</li>
+      <li class="temp">...</li>
+      <li class="temp">...</li>
+      <li class="temp">...</li>
+      <li class="temp">...</li>
+    </ul>
+    <div class="loading"></div>
+
+    <div class="modal" id="copperhoppermodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-white" style="background-color:#000000 ">
+              <h5 class="modal-title">COPPERHOPPER</h5>
+              <button type="button" class="close" style="color:#ffffff; opacity:1" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align:left">
+              <p>¡Bienvenide a CopperHopper!</p>
+              <p>Una idea de El Club de las Tormentas y basado en la idea del WikiRace.
+              Aquí tienes dos artículos aleatorios de la Coppermind.
+              El juego consiste en que viajes de uno a otro pasando por el menor número de páginas posibles.</p>
+              <p>¡Buena suerte, saltamundos!</p>
+            </div>
+            <div class="modal-footer">
+              <button onclick='copperhopper()' class="btn btn-secondary" data-dismiss="modal">Empezar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+
+
+</html>
+
