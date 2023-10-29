@@ -5,6 +5,8 @@ db.sqlite
 db.sqlite3
 .DS_Store
 .env
+.env.prod
+.env.prod.db
 .idea
 /data
 *.log
