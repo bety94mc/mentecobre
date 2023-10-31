@@ -22,10 +22,10 @@ ENV LC_ALL es_ES.UTF-8
 
 # lint
 RUN pip install --upgrade pip
-COPY .. /code/
+COPY ../.. /code/
 
 # install python dependencies
-COPY requirements.txt /code/
+COPY ../requirements.txt /code/
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /code/wheels -r requirements.txt
 
 
@@ -59,7 +59,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache /wheels/*
 
 # copy project
-COPY .. $APP_HOME
+COPY ../.. $APP_HOME
 
 
 # chown all the files to the app user
