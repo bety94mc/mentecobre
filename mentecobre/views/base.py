@@ -529,7 +529,7 @@ class ReviewView(LoginRequiredMixin, View):
 
 
 class ProfileView(LoginRequiredMixin, View):
-    def get(self, request, username):
+    def get(self, request, username=None):
         try:
             if not username:
                 user = request.user
