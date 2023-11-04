@@ -1,6 +1,7 @@
 import random
 
 import pandas as pd
+from csp.decorators import csp_update
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied, ValidationError
@@ -234,7 +235,7 @@ class CopperProblemView(LoginRequiredMixin, View):
 
 class GlossaryView(View):
 
-    @xframe_options_exempt
+    @csp_update(CSP_FRAME_ANCESTORS=("'self'", 'cosmere.es'))
     def get(self, request):
         try:
             search = request.GET.get("q", None)
@@ -327,7 +328,7 @@ class GregorioView(LoginRequiredMixin, View):
 
 class HomeView(View):
 
-    @xframe_options_exempt
+    @csp_update(CSP_FRAME_ANCESTORS=("'self'", 'cosmere.es'))
     def get(self, request):
         try:
             manager = HomeManager()
