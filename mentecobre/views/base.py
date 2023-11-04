@@ -1,7 +1,6 @@
 import random
 
 import pandas as pd
-from csp.decorators import csp_update
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied, ValidationError
@@ -63,6 +62,7 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error(f'Error - get - ChangesView')
             logger.error(ex)
             return error_500(request)
+
     def post(self, request):
         user = request.user
         try:
@@ -108,9 +108,11 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error(ex)
             return error_500(request)
 
+
 class CopperHopperView(View):
     def __init__(self):
         self.databasemanager = DatabaseManager()
+
     def get(self, request):
         try:
 
@@ -235,7 +237,6 @@ class CopperProblemView(LoginRequiredMixin, View):
 
 class GlossaryView(View):
 
-    @csp_update(CSP_FRAME_ANCESTORS=("'self'", 'cosmere.es'))
     def get(self, request):
         try:
             search = request.GET.get("q", None)
@@ -247,16 +248,18 @@ class GlossaryView(View):
 
             else:
                 object_list = None
-
-            return render(
+            response = render(
                 request,
                 'mentecobre/glossary.html',
                 context={"object_list": object_list}
             )
+            response['Content-Security-Policy'] = "frame-ancestors 'self' https://cosmere.es/"
+            return response
         except Exception as ex:
             logger.error(f'Error - get - GlossaryView')
             logger.error(ex)
             return error_500(request)
+
 
 class GregorioView(LoginRequiredMixin, View):
 
@@ -300,7 +303,8 @@ class GregorioView(LoginRequiredMixin, View):
                     CustomUser.objects.filter(username=username).update(is_resting=True, is_active=False,
                                                                         timeoff_date=today)
                 elif status == 'Inactive':
-                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False, is_staff=False,
+                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False,
+                                                                        is_staff=False,
                                                                         out_date=today)
                 elif status == 'Active':
                     CustomUser.objects.filter(username=username).update(is_resting=False, is_active=True, out_date=None)
@@ -326,9 +330,9 @@ class GregorioView(LoginRequiredMixin, View):
             logger.error(ex)
             return error_500(request)
 
+
 class HomeView(View):
 
-    @csp_update(CSP_FRAME_ANCESTORS=("'self'", 'cosmere.es'))
     def get(self, request):
         try:
             manager = HomeManager()
@@ -346,7 +350,7 @@ class HomeView(View):
             universes_chart = manager.get_universes_chart()
             month_chart = manager.get_month_chart()
 
-            return render(
+            response = render(
                 request,
                 'mentecobre/index.html',
                 context={'num_articles_total': num_articles_total, 'num_articles_translated': num_articles_translated,
@@ -354,6 +358,8 @@ class HomeView(View):
                          'reviewed_progress': reviewed_progress, 'diff_progress': diff_progress,
                          'universes_chart': universes_chart, 'month_chart': month_chart}
             )
+            response['Content-Security-Policy'] = "frame-ancestors 'self' https://cosmere.es/"
+            return response
 
         except Exception as ex:
             logger.error(f'Error - get - HomeView')
@@ -546,8 +552,9 @@ class ProfileView(LoginRequiredMixin, View):
 
             if user.is_translator():
                 translator_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, 'Translator')
-                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                                   'Translator')
+                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(
+                    userid,
+                    'Translator')
                 translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(
                     translator_assigned_articles_finished)
 
@@ -621,7 +628,8 @@ class TranslateView(LoginRequiredMixin, View):
                     article_id = form.cleaned_data["articleID"]
                     article_notes = form.cleaned_data["notes"]
                     article_translated_date = date.today()
-                    Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
+                    Articles.objects.filter(pk=article_id).update(translated=True,
+                                                                  translatedDate=article_translated_date,
                                                                   notes=article_notes)
                 else:
                     raise ValidationError
