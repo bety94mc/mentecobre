@@ -399,7 +399,7 @@ class RereviewView(LoginRequiredMixin, View):
     def post(self, request):
         user = request.user
         try:
-            if not user.is_superuser():
+            if not user.is_superuser:
                 raise PermissionDenied
 
             if "form-rereview" in request.POST:
