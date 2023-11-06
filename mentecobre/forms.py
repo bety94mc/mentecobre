@@ -24,6 +24,6 @@ class ReviewArticleForm(forms.Form):
 
 class TranslateArticleForm(forms.Form):
     articleID = forms.IntegerField()
-    notes = forms.CharField(widget=forms.Textarea)
+    notes = forms.CharField(widget=forms.Textarea, required=False)
 
 
