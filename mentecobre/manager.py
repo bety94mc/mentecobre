@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 from datetime import date, timedelta, datetime
 
 from django.db.models import Count, Q
@@ -565,9 +565,9 @@ class HomeManager:
         df_final_melted = pd.melt(df_final, id_vars=['universe'], var_name='type')
         fig = px.bar(df_final_melted, x='value', y='universe', color='type', orientation='h',
                      color_discrete_map=self.UNIVERSE_COLOR_DICT)
+        fig.update_traces(hovertemplate='%{x}')
 
         layout = {
-
             'xaxis_title': '<b>Universo</b>',
             'yaxis': {
                 'type': 'category',
@@ -586,9 +586,12 @@ class HomeManager:
             'font_color': '#FFFFFF',
             'paper_bgcolor': 'rgba(0,0,0,0)',
             'plot_bgcolor': 'rgba(0,0,0,0)',
+            'hovermode': 'y unified',
+            'hoverlabel': {'bgcolor': 'rgba(0,0,0,0.8)', 'font': {'color': 'white'}}
         }
         return plot({'data': fig.data, 'layout': layout}, output_type='div')
 
+    @staticmethod
     def get_month_chart(self):
         qs_translated_month = DatabaseManager.get_qs_articles_translate().values('translatedDate').annotate(
             num_translated=Count('translatedDate')
@@ -633,6 +636,9 @@ class HomeManager:
             'paper_bgcolor': 'rgba(0,0,0,0)',
             'plot_bgcolor': 'rgba(0,0,0,0)',
             'barmode': 'group',
+            'hovermode': 'x unified',
+            'hoverlabel': {'bgcolor': 'rgba(0,0,0,0.8)', 'font': {'color': 'white'}}
+
         }
 
         return plot({'data': graphs, 'layout': layout}, output_type='div')
