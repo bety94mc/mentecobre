@@ -592,7 +592,7 @@ class HomeManager:
         return plot({'data': fig.data, 'layout': layout}, output_type='div')
 
     @staticmethod
-    def get_month_chart(self):
+    def get_month_chart():
         qs_translated_month = DatabaseManager.get_qs_articles_translate().values('translatedDate').annotate(
             num_translated=Count('translatedDate')
         )
