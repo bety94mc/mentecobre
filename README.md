@@ -1,4 +1,4 @@
-# Mentecobre 1.0.2
+# Mentecobre 1.0.3
 
 ## Introduction
 This projects build a django web app designed to organize the Coppermind translation
