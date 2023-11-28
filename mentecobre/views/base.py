@@ -111,6 +111,8 @@ class ChangesView(LoginRequiredMixin, View):
 class CopperHopperView(View):
     def __init__(self):
         self.databasemanager = DatabaseManager()
+
+    @xframe_options_exempt
     def get(self, request):
         try:
 
