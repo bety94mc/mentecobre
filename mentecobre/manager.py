@@ -24,7 +24,8 @@ class CoppermindManager:
         'Coppermind': '4',
         'Resumen': '3000',
         'Categorías': '14',
-        'Plantillas': '10'
+        'Plantillas': '10',
+        'MediaWiki': '8'
     }
 
     @staticmethod

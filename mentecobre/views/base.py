@@ -62,6 +62,7 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error("Error - get - ChangesView")
             logger.error(ex)
             return error_500(request)
+
     def post(self, request):
         user = request.user
         try:
@@ -82,7 +83,7 @@ class ChangesView(LoginRequiredMixin, View):
                 moved_articles = manager.get_moved_articles(changes_df)
 
                 response = HttpResponse(content_type="application/xlsx")
-                response["Content-Disposition"] = "attachment; filename='Cambios.xlsx'"
+                response["Content-Disposition"] = "attachment; filename=Cambios.xlsx"
                 with pd.ExcelWriter(response) as writer:
                     new_articles.to_excel(writer, sheet_name="Articulos_nuevos")
                     translated_articles.to_excel(writer, sheet_name="Articulos_traducidos")
@@ -107,6 +108,7 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error("Error - post - ChangesView")
             logger.error(ex)
             return error_500(request)
+
 
 class CopperHopperView(View):
     def __init__(self):
@@ -261,6 +263,7 @@ class GlossaryView(View):
             logger.error(ex)
             return error_500(request)
 
+
 class GregorioView(LoginRequiredMixin, View):
 
     def get(self, request):
@@ -303,8 +306,8 @@ class GregorioView(LoginRequiredMixin, View):
                     CustomUser.objects.filter(username=username).update(is_resting=True, is_active=False,
                                                                         timeoff_date=today)
                 elif status == "Inactive":
-                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False, is_staff=False,
-                                                                        out_date=today)
+                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False,
+                                                                        is_staff=False, out_date=today)
                 elif status == "Active":
                     CustomUser.objects.filter(username=username).update(is_resting=False, is_active=True, out_date=None)
                 else:
@@ -329,6 +332,7 @@ class GregorioView(LoginRequiredMixin, View):
             logger.error("Error - post - GregorioView")
             logger.error(ex)
             return error_500(request)
+
 
 class HomeView(View):
 
@@ -552,15 +556,15 @@ class ProfileView(LoginRequiredMixin, View):
 
             if user.is_translator():
                 translator_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, "Translator")
-                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                                   "Translator")
+                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(
+                    userid, "Translator")
                 translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(
                     translator_assigned_articles_finished)
 
             if user.is_reviewer():
                 reviewer_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, "Reviewer")
-                reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                                 "Reviewer")
+                reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(
+                    userid, "Reviewer")
                 reviewer_assigned_articles_finished_count = DatabaseManager.get_num_articles(
                     reviewer_assigned_articles_finished)
 
@@ -627,7 +631,8 @@ class TranslateView(LoginRequiredMixin, View):
                     article_id = form.cleaned_data["articleID"]
                     article_notes = form.cleaned_data["notes"]
                     article_translated_date = date.today()
-                    Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
+                    Articles.objects.filter(pk=article_id).update(translated=True,
+                                                                  translatedDate=article_translated_date,
                                                                   notes=article_notes)
                 else:
                     raise ValidationError(form.errors)
@@ -653,7 +658,7 @@ class TranslateView(LoginRequiredMixin, View):
 
             return redirect("translate")
 
-        except PermissionDenied as err:
+        except PermissionDenied:
             logger.error("Permission error - post - TranslateView")
             logger.error(f"{user} has not allowed to access to this view")
             return error_403(request, PermissionDenied)
