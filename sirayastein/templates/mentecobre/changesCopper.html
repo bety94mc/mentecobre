@@ -14,7 +14,7 @@
                <div class="card-body">
                    <form method="POST" id="form-copper-changes">
                        {% csrf_token %}
-                       {{form.as_p }}
+                       {{form_changes.as_p }}
                        <input name="form-copper-changes" type="submit" value="Descargar" class="assign-button">
                    </form>
                </div>
@@ -31,7 +31,11 @@
                 </h5>
              </div>
            <div class="card-body">
-                <a href="cambios/listadocopper" class="btn btn-cosmere" tabindex="-1" role="button">Sacar listado</a>
+                <form method="POST" id="form-copper-list">
+                       {% csrf_token %}
+                       {{form_copperlist.as_p }}
+                       <input name="form-copper-list" type="submit" value="Sacar listado" class="assign-button">
+               </form>
            </div>
          </div>
       </div>
