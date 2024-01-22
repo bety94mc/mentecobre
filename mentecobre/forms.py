@@ -11,6 +11,10 @@ class GregorioForm(forms.Form):
     username = forms.CharField(required=True)
     status = forms.CharField(required=True)
 
+class CopperListForm(forms.Form):
+    CHOICES = (('Es', 'Español'), ('En', 'Inglés'),)
+    language = forms.ChoiceField(choices=CHOICES, required=True, label='Idioma')
+
 class ProblemArticleForm(forms.Form):
     articleID = forms.IntegerField()
 

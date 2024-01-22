@@ -24,7 +24,8 @@ class CoppermindManager:
         'Coppermind': '4',
         'Resumen': '3000',
         'Categorías': '14',
-        'Plantillas': '10'
+        'Plantillas': '10',
+        'MediaWiki': '8'
     }
 
     @staticmethod
@@ -227,7 +228,7 @@ class CoppermindManager:
 
     def get_articles(self, language):
         pages_df = pd.DataFrame(columns=['PageID', 'Title', 'URL'])
-        if language == 'en':
+        if language == 'En':
             url = 'https://coppermind.net/w/api.php'
         else:
             url = 'https://es.coppermind.net/w/api.php'

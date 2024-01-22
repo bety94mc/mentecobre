@@ -14,7 +14,7 @@ from django.views.generic import ListView
 from datetime import date
 
 from mentecobre.forms import TranslateArticleForm, AssignArticleForm, ReviewArticleForm, ReReviewArticleForm, \
-    ProblemArticleForm, ChangesForm, GregorioForm
+    ProblemArticleForm, ChangesForm, GregorioForm, CopperListForm
 from mentecobre.models import Glossary, Articles, Category
 from mentecobre.manager import TranslateManager, ReviewManager, ReReviewManager, HomeManager, DatabaseManager, \
     CoppermindManager, GregorioManager
@@ -39,19 +39,22 @@ class CategoryListView(LoginRequiredMixin, ListView):
     context_object_name = "category_list"
 
 
-class ChangesView(LoginRequiredMixin, View):
+class ChangesListsView(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
         try:
             if not user.is_superuser:
                 raise PermissionDenied
 
-            form = ChangesForm(initial={"start_date": date.today().strftime("%Y-%m-%d"),
+            form_changes = ChangesForm(initial={"start_date": date.today().strftime("%Y-%m-%d"),
                                         "end_date": date.today().strftime("%Y-%m-%d")})
+
+            form_copperlist = CopperListForm()
+
             return render(
                 request,
                 "mentecobre/changesCopper.html",
-                context={"form": form},
+                context={"form_changes": form_changes, "form_copperlist": form_copperlist},
             )
         except PermissionDenied:
             logger.error("Permission error - get - ChangesView")
@@ -62,35 +65,50 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error("Error - get - ChangesView")
             logger.error(ex)
             return error_500(request)
+
     def post(self, request):
         user = request.user
         try:
             if not user.is_superuser:
                 raise PermissionDenied
 
-            form = ChangesForm(request.POST)
-            if form.is_valid():
-                start_date = form.cleaned_data["start_date"]
-                end_date = form.cleaned_data["end_date"]
+            if "form-copper-changes" in request.POST:
+                form_changes = ChangesForm(request.POST)
+                if form_changes.is_valid():
+                    start_date = form_changes.cleaned_data["start_date"]
+                    end_date = form_changes.cleaned_data["end_date"]
 
-                manager = CoppermindManager()
-                dates_list = manager.split_period_in_weeks(start_date, end_date)
-                changes_df = manager.get_changes(dates_list)
-                new_articles = manager.get_new_articles(changes_df)
-                translated_articles = manager.get_translated_articles(changes_df)
-                not_assigned_not_translated_articles = manager.get_not_assigned_not_translated_articles(changes_df)
-                moved_articles = manager.get_moved_articles(changes_df)
+                    manager = CoppermindManager()
+                    dates_list = manager.split_period_in_weeks(start_date, end_date)
+                    changes_df = manager.get_changes(dates_list)
+                    new_articles = manager.get_new_articles(changes_df)
+                    translated_articles = manager.get_translated_articles(changes_df)
+                    not_assigned_not_translated_articles = manager.get_not_assigned_not_translated_articles(changes_df)
+                    moved_articles = manager.get_moved_articles(changes_df)
 
-                response = HttpResponse(content_type="application/xlsx")
-                response["Content-Disposition"] = "attachment; filename='Cambios.xlsx'"
-                with pd.ExcelWriter(response) as writer:
-                    new_articles.to_excel(writer, sheet_name="Articulos_nuevos")
-                    translated_articles.to_excel(writer, sheet_name="Articulos_traducidos")
-                    not_assigned_not_translated_articles.to_excel(writer, sheet_name="Articulos_sin_traducir")
-                    moved_articles.to_excel(writer, sheet_name="HTUP")
-                    return response
-            else:
-                raise ValidationError(form.errors)
+                    response = HttpResponse(content_type="application/xlsx")
+                    response["Content-Disposition"] = "attachment; filename=Cambios.xlsx"
+                    with pd.ExcelWriter(response) as writer:
+                        new_articles.to_excel(writer, sheet_name="Articulos_nuevos")
+                        translated_articles.to_excel(writer, sheet_name="Articulos_traducidos")
+                        not_assigned_not_translated_articles.to_excel(writer, sheet_name="Articulos_sin_traducir")
+                        moved_articles.to_excel(writer, sheet_name="HTUP")
+                        return response
+                else:
+                    raise ValidationError(form_changes.errors)
+            elif "form-copper-list" in request.POST:
+                form_copperlist = CopperListForm(request.POST)
+                if form_copperlist.is_valid():
+                    language = form_copperlist.cleaned_data["language"]
+                    manager = CoppermindManager()
+                    copper_list = manager.get_articles(language)
+                    response = HttpResponse(content_type="application/xlsx")
+                    response["Content-Disposition"] = "attachment; filename=ArticulosCopper.xlsx"
+                    with pd.ExcelWriter(response) as writer:
+                        copper_list.to_excel(writer, sheet_name="Listado de articulos")
+                        return response
+                else:
+                    raise ValidationError(form_copperlist.errors)
 
         except PermissionDenied:
             logger.error("Permission error - post - ChangesView")
@@ -107,6 +125,7 @@ class ChangesView(LoginRequiredMixin, View):
             logger.error("Error - post - ChangesView")
             logger.error(ex)
             return error_500(request)
+
 
 class CopperHopperView(View):
     def __init__(self):
@@ -261,6 +280,7 @@ class GlossaryView(View):
             logger.error(ex)
             return error_500(request)
 
+
 class GregorioView(LoginRequiredMixin, View):
 
     def get(self, request):
@@ -303,8 +323,8 @@ class GregorioView(LoginRequiredMixin, View):
                     CustomUser.objects.filter(username=username).update(is_resting=True, is_active=False,
                                                                         timeoff_date=today)
                 elif status == "Inactive":
-                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False, is_staff=False,
-                                                                        out_date=today)
+                    CustomUser.objects.filter(username=username).update(is_resting=False, is_active=False,
+                                                                        is_staff=False, out_date=today)
                 elif status == "Active":
                     CustomUser.objects.filter(username=username).update(is_resting=False, is_active=True, out_date=None)
                 else:
@@ -329,6 +349,7 @@ class GregorioView(LoginRequiredMixin, View):
             logger.error("Error - post - GregorioView")
             logger.error(ex)
             return error_500(request)
+
 
 class HomeView(View):
 
@@ -552,15 +573,15 @@ class ProfileView(LoginRequiredMixin, View):
 
             if user.is_translator():
                 translator_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, "Translator")
-                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                                   "Translator")
+                translator_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(
+                    userid, "Translator")
                 translator_assigned_articles_finished_count = DatabaseManager.get_num_articles(
                     translator_assigned_articles_finished)
 
             if user.is_reviewer():
                 reviewer_assigned_articles = DatabaseManager.get_qs_articules_assigned_to_user(userid, "Reviewer")
-                reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(userid,
-                                                                                                                 "Reviewer")
+                reviewer_assigned_articles_finished = DatabaseManager.get_qs_articules_assigned_to_user_finished(
+                    userid, "Reviewer")
                 reviewer_assigned_articles_finished_count = DatabaseManager.get_num_articles(
                     reviewer_assigned_articles_finished)
 
@@ -627,7 +648,8 @@ class TranslateView(LoginRequiredMixin, View):
                     article_id = form.cleaned_data["articleID"]
                     article_notes = form.cleaned_data["notes"]
                     article_translated_date = date.today()
-                    Articles.objects.filter(pk=article_id).update(translated=True, translatedDate=article_translated_date,
+                    Articles.objects.filter(pk=article_id).update(translated=True,
+                                                                  translatedDate=article_translated_date,
                                                                   notes=article_notes)
                 else:
                     raise ValidationError(form.errors)
@@ -653,7 +675,7 @@ class TranslateView(LoginRequiredMixin, View):
 
             return redirect("translate")
 
-        except PermissionDenied as err:
+        except PermissionDenied:
             logger.error("Permission error - post - TranslateView")
             logger.error(f"{user} has not allowed to access to this view")
             return error_403(request, PermissionDenied)
