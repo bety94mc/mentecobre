@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Official Knights Radiant Order Quiz | Brandon Sanderson</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico'"/>
+    <link rel="stylesheet" href="/static/css/testknightradiantorder.css" />
+
+</head>
+<body>
+<div class="container text-center" id="top">
+    <h1>Test oficial de las Órdenes de Caballeros Radiantes</h1>
+  </div>
+  <div id="quiz-container" class="container quiz-container">
+    <div class="container text-justify">
+			<br />
+      El destino de Roshar pende de un hilo y, una vez más, los spren radiantes buscan unirse a la humanidad. ¡Los Caballeros Radiantes deben alzarse de nuevo!<p>
+      Desliza el control hacia los atributos con los que más te identifiques y el test te asignará la Orden de Caballeros Radiantes a la que pertenecerías con más probabilidad, junto con las probabilidades de que pertenezcas a las otras Órdenes. Este test solo te llevará unos minutos.
+    </div>
+    <p>
+    <ul id="quiz" class="list-group">
+    </ul>
+  </div>
+
+  <div class="container text-center results d-none">
+    <p id="results"></p>
+  </div>
+<br />
+  <div class="container text-center bottom">
+    <button id="submit-btn" class="btn btn-primary btn-lg" disabled>Pronuncia las palabras</button>
+    <button id="retake-btn" class="d-none btn btn-secondary">Volver a hacer el Test</button>
+    <button id="edit-btn" class="d-none btn btn-secondary">Editar Respuestas</button>
+  </div>
+<br />
+<div class="container text-center bottom">
+    Esta es una traducción del test original creado por Dragonsteel y que podéis encontrar en inglés en la web de Brandon Sanderson.
+  Puedes consultar su versión original <a href="https://www.brandonsanderson.com/official-knights-radiant-order-quiz/">aquí</a>.
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src = "/static/js/testknightradiantorder.js"> </script>
+</body>

@@ -130,6 +130,22 @@ class CopperHopperView(View):
             return error_500(request)
 
 
+class TestOrderView(View):
+    def __init__(self):
+        self.databasemanager = DatabaseManager()
+
+    @xframe_options_exempt
+    def get(self, request):
+        try:
+            return render(
+                request,
+                "mentecobre/testKnightRadiantOrder.html",
+            )
+        except Exception as ex:
+            logger.error("Error - get - CopperHopperView")
+            logger.error(ex)
+            return error_500(request)
+
 class CopperListView(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user

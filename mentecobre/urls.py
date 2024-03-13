@@ -18,4 +18,5 @@ urlpatterns = [
     path('perfil', base.ProfileView.as_view(), name='profile'),
     path('perfil/<username>/', base.ProfileView.as_view(), name='user-profile'),
     path('login', base.GlossaryView.as_view(), name='login'),
+    path('testorden',base.TestOrderView.as_view(),name='test-order')
 ]

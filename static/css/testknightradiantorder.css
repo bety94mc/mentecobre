@@ -1,0 +1,48 @@
+/* ========= INFORMATION ============================
+	- document:  WP Coder!
+	- author:    Dmytro Lobov
+	- url:       https://wow-estore.com/
+==================================================== */
+.quiz-container {
+  max-width: 800px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.prompt {
+	display: block;
+	font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.floatClear {
+  clear: both;
+}
+
+.bottom {
+	margin-bottom: 40px;
+}
+
+/* RESULTS */
+.results {
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
