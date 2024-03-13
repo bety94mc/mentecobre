@@ -653,6 +653,7 @@ Pronuncia otra vez los antiguos juramentos: Vida antes que muerte. Fuerza antes 
 <img src="${orderData[chosenOrder].imageUrl}" class="img-fluid"><p>
 <h2>${orderData[chosenOrder].name} - ${orderData[chosenOrder].catchphrase}</h2>
 Perteneces a la orden de los ${orderData[chosenOrder].name} la cual da acceso a las Potencias de ${orderData[chosenOrder].power1} y ${orderData[chosenOrder].power2}. La ${orderData[chosenOrder].power1} te permite ${orderData[chosenOrder].power1Desc}. La ${orderData[chosenOrder].power2} te permite ${orderData[chosenOrder].power2Desc}.<p>
+${orderData[chosenOrder].oathTheme}<p>
 ${orderData[chosenOrder].role}<p>
 Lee más sobre los ${orderData[chosenOrder].name} <a href="${orderData[chosenOrder].blogLink}">aquí</a>.<p>
 Si esta Orden no te encaja o no es lo que estabas esperando, lee más sobre cada Orden <a href="https://cosmere.es/a-que-orden-de-caballeros-radiantes-perteneces-e-informacion-actualizada-sobre-los-mismos/">aquí</a> y elije tu favorita<p> Aquí tienes un detalle de cómo te alineas con cada Orden:
